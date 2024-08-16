@@ -31,11 +31,6 @@ grow_vertical = 2
 theme_override_constants/separation = 164
 alignment = 1
 
-[node name="SubmitButton" type="Button" parent="UI/Table/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-text = "SUBMIT"
-
 [node name="ScaleSliderX" parent="UI/Table/HBoxContainer" instance=ExtResource("1_5axh8")]
 layout_mode = 2
 scale_multiplier = Vector2(0.1, 0)
@@ -43,6 +38,11 @@ scale_multiplier = Vector2(0.1, 0)
 [node name="ScaleSliderY" parent="UI/Table/HBoxContainer" instance=ExtResource("1_5axh8")]
 layout_mode = 2
 scale_multiplier = Vector2(0, 0.1)
+
+[node name="SubmitButton" type="Button" parent="UI/Table/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "SUBMIT"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(644, 262)
@@ -53,7 +53,10 @@ texture = ExtResource("2_swrnk")
 position = Vector2(644, 262)
 texture = ExtResource("2_swrnk")
 
-[node name="PlayerConsoleManager" type="Node2D" parent="." node_paths=PackedStringArray("sprite")]
+[node name="PlayerConsoleManager" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "sprite_to_match")]
 unique_name_in_owner = true
 script = ExtResource("3_26j68")
 sprite = NodePath("../Sprite2D")
+sprite_to_match = NodePath("../Sprite2D2")
+
+[connection signal="pressed" from="UI/Table/HBoxContainer/SubmitButton" to="PlayerConsoleManager" method="_on_submit_button_pressed"]
