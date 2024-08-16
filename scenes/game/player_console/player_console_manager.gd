@@ -32,7 +32,6 @@ func calculate_percentage(current_scale: float, scale_to_match: float) -> float:
 	
 func _on_scale_slider_used(scaling_factor: Vector2) -> void:
 	self.scaling_factor = scaling_factor
-	
 
 
 func _on_submit_button_pressed():

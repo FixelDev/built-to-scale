@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvxkd3km0hrow"]
+
+[ext_resource type="PackedScene" uid="uid://d1sgsr5vtsvbn" path="res://entities/game_object/game_object.tscn" id="1_8klbj"]
+[ext_resource type="Texture2D" uid="uid://cklb6iar1lojv" path="res://icon.svg" id="2_6vot6"]
+
+[node name="TestGameObject" instance=ExtResource("1_8klbj")]
+texture = ExtResource("2_6vot6")

@@ -1,11 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://caumargkuom31"]
+[gd_scene load_steps=9 format=3 uid="uid://caumargkuom31"]
 
-[ext_resource type="PackedScene" uid="uid://csf6q162d5e8q" path="res://player_console/entities/scale_slider.tscn" id="1_5axh8"]
+[ext_resource type="PackedScene" uid="uid://csf6q162d5e8q" path="res://scenes/game/player_console/scale_slider/scale_slider.tscn" id="1_5axh8"]
 [ext_resource type="Texture2D" uid="uid://cklb6iar1lojv" path="res://icon.svg" id="2_swrnk"]
-[ext_resource type="Script" path="res://player_console/player_console_manager.gd" id="3_26j68"]
+[ext_resource type="Script" path="res://scenes/game/player_console/player_console_manager.gd" id="3_26j68"]
+[ext_resource type="Shader" path="res://entities/game_object/outline.gdshader" id="3_emfrl"]
+[ext_resource type="Script" path="res://scenes/game/game_object_spawner/game_object_spawner.gd" id="4_fmdik"]
+[ext_resource type="PackedScene" uid="uid://dvxkd3km0hrow" path="res://entities/game_object/test_game_object/test_game_object.tscn" id="6_iefuh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxm14"]
 bg_color = Color(0.125911, 0.125911, 0.125911, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ebnn"]
+shader = ExtResource("3_emfrl")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 5.0
+shader_parameter/pattern = 2
+shader_parameter/inside = false
+shader_parameter/add_margins = true
 
 [node name="Game" type="Node2D"]
 
@@ -44,19 +55,31 @@ layout_mode = 2
 size_flags_vertical = 4
 text = "SUBMIT"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(644, 262)
-scale = Vector2(8.52, 1.84)
-texture = ExtResource("2_swrnk")
+[node name="PointsLabel" type="Label" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 31
+text = "Points: 0"
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="GameObjectOutline" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_8ebnn")
 position = Vector2(644, 262)
 texture = ExtResource("2_swrnk")
 
 [node name="PlayerConsoleManager" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "sprite_to_match")]
 unique_name_in_owner = true
 script = ExtResource("3_26j68")
-sprite = NodePath("../Sprite2D")
-sprite_to_match = NodePath("../Sprite2D2")
+sprite = NodePath("")
+sprite_to_match = NodePath("../GameObjectOutline")
+
+[node name="GameObjectSpawner" type="Node2D" parent="."]
+position = Vector2(644, 262)
+script = ExtResource("4_fmdik")
+game_object_scenes = Array[PackedScene]([ExtResource("6_iefuh")])
 
 [connection signal="pressed" from="UI/Table/HBoxContainer/SubmitButton" to="PlayerConsoleManager" method="_on_submit_button_pressed"]
