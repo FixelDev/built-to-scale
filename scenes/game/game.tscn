@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://caumargkuom31"]
+
+[ext_resource type="PackedScene" uid="uid://csf6q162d5e8q" path="res://player_console/entities/scale_slider.tscn" id="1_5axh8"]
+[ext_resource type="Texture2D" uid="uid://cklb6iar1lojv" path="res://icon.svg" id="2_swrnk"]
+[ext_resource type="Script" path="res://player_console/player_console_manager.gd" id="3_26j68"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxm14"]
+bg_color = Color(0.125911, 0.125911, 0.125911, 1)
+
+[node name="Game" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Table" type="Panel" parent="UI"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -272.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rxm14")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Table"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 164
+alignment = 1
+
+[node name="SubmitButton" type="Button" parent="UI/Table/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "SUBMIT"
+
+[node name="ScaleSliderX" parent="UI/Table/HBoxContainer" instance=ExtResource("1_5axh8")]
+layout_mode = 2
+scale_multiplier = Vector2(0.1, 0)
+
+[node name="ScaleSliderY" parent="UI/Table/HBoxContainer" instance=ExtResource("1_5axh8")]
+layout_mode = 2
+scale_multiplier = Vector2(0, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(644, 262)
+scale = Vector2(8.52, 1.84)
+texture = ExtResource("2_swrnk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(644, 262)
+texture = ExtResource("2_swrnk")
+
+[node name="PlayerConsoleManager" type="Node2D" parent="." node_paths=PackedStringArray("sprite")]
+unique_name_in_owner = true
+script = ExtResource("3_26j68")
+sprite = NodePath("../Sprite2D")
