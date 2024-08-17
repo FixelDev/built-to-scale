@@ -1,11 +1,8 @@
 class_name PlayerConsoleManager extends Node2D
 
-@export var sprite: Sprite2D
-@export var sprite_to_match: Sprite2D
+@onready var game_object_manager = %GameObjectManager
 
 var scaling_factor: Vector2
-var scale_to_match: Vector2
-var current_scale: Vector2
 var accuracy: float
 	
 
@@ -13,7 +10,19 @@ func _process(delta) -> void:
 	if scaling_factor == Vector2.ZERO:
 		return
 	
-	sprite.scale += scaling_factor
+	if game_object_manager.current_game_object.scale.x <= game_object_manager.current_game_object.min_scale.x and scaling_factor.x < 0:
+		return
+	
+	if game_object_manager.current_game_object.scale.x >= game_object_manager.current_game_object.max_scale.x and scaling_factor.x > 0:
+		return
+		
+	if game_object_manager.current_game_object.scale.y <= game_object_manager.current_game_object.min_scale.y and scaling_factor.y < 0:
+		return
+		
+	if game_object_manager.current_game_object.scale.y >= game_object_manager.current_game_object.max_scale.y and scaling_factor.y > 0:
+		return
+	
+	game_object_manager.current_game_object.scale += scaling_factor
 
 
 func calculate_percentage(current_scale: float, scale_to_match: float) -> float:
@@ -40,10 +49,9 @@ func _on_submit_button_pressed():
 
 
 func calculate_accuracy() -> void:
-	current_scale = sprite.scale
-	scale_to_match = sprite_to_match.scale
+	var current_scale: Vector2 = game_object_manager.current_game_object.scale
 	
-	var percentage_x: float = calculate_percentage(current_scale.x, scale_to_match.x)
-	var percentage_y: float = calculate_percentage(current_scale.y, scale_to_match.y)
+	var percentage_x: float = calculate_percentage(current_scale.x, game_object_manager.scale_to_match)
+	var percentage_y: float = calculate_percentage(current_scale.y, game_object_manager.scale_to_match)
 	
 	accuracy = (percentage_x + percentage_y) / 2
