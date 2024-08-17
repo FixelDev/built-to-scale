@@ -88,8 +88,7 @@ func _on_submit_button_pressed():
 
 func _on_game_timer_timeout():
 	toggle_console_tools(false)
-	
-	await get_tree().create_timer(2).timeout
+	await SilentWolf.Scores.save_score(Globals.player_name, Globals.points).sw_save_score_complete
 	
 	SceneManager.load_scene(SceneManager.game_over_scene)
 	

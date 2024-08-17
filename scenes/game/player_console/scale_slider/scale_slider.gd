@@ -28,4 +28,11 @@ func _on_drag_ended(value_changed) -> void:
 	slider_used.emit(Vector2.ZERO)
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(self, "value", 0, 0.3).set_trans(Tween.TRANS_CUBIC)
-	
+
+
+func _on_mouse_entered():
+	pass
+
+
+func _on_mouse_exited():
+	pass

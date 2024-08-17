@@ -14,12 +14,19 @@ var points: int = 0:
 
 var api_key: String
 
+var player_name: String
+
+
 func _ready() -> void:
 	var file = FileAccess.open('res://api_key.env', FileAccess.READ)
 	api_key = file.get_as_text()
 	
 	SilentWolf.configure({
 		"api_key": self.api_key,
-		"game_id": "Builttoscale12",
+		"game_id": "builttoscale",
 		"log_level": 1
  	})
+	
+	SilentWolf.configure_scores({
+	"open_scene_on_close": "res://scenes/menu/menu.tscn"
+  })

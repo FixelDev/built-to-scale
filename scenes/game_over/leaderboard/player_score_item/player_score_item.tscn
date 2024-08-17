@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbqi1tme1vmx"]
+
+[ext_resource type="Script" path="res://scenes/game_over/leaderboard/player_score_item/player_score_item.gd" id="1_6dqau"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r2o88"]
+
+[node name="PlayerScoreItem" type="PanelContainer"]
+script = ExtResource("1_6dqau")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PlaceLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "#1"
+
+[node name="PlayerNameLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Fixel"
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 135
+theme_override_styles/separator = SubResource("StyleBoxEmpty_r2o88")
+
+[node name="PlayerScoreLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "232"
+horizontal_alignment = 2

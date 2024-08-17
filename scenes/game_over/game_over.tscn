@@ -1,3 +1,43 @@
-[gd_scene format=3 uid="uid://bvyb3iwt2tvkv"]
+[gd_scene load_steps=3 format=3 uid="uid://bvyb3iwt2tvkv"]
+
+[ext_resource type="Script" path="res://scenes/game_over/leaderboard/leaderboard.gd" id="1_8t0l3"]
+[ext_resource type="PackedScene" uid="uid://cbqi1tme1vmx" path="res://scenes/game_over/leaderboard/player_score_item/player_score_item.tscn" id="2_1bjiq"]
 
 [node name="GameOver" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Leaderboard" type="PanelContainer" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8t0l3")
+player_score_item_scene = ExtResource("2_1bjiq")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Leaderboard"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Leaderboard/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Leaderboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "LEADERBOARD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerScoreItemContainer" type="VBoxContainer" parent="UI/Leaderboard/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
