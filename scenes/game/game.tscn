@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://caumargkuom31"]
+[gd_scene load_steps=61 format=3 uid="uid://caumargkuom31"]
 
 [ext_resource type="PackedScene" uid="uid://csf6q162d5e8q" path="res://scenes/game/player_console/scale_slider/scale_slider.tscn" id="1_5axh8"]
 [ext_resource type="Texture2D" uid="uid://cvhms6cgh6lo4" path="res://scenes/game/player_console/score_panel.png" id="1_5jlqo"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://dsav2kswee6jo" path="res://scenes/game/player_console/scale_slider/submit_button_disabled.png" id="5_gdca3"]
 [ext_resource type="Script" path="res://scenes/game/points_manager/points_manager.gd" id="6_20o6s"]
 [ext_resource type="Texture2D" uid="uid://cnrwsjmph841i" path="res://scenes/game/player_console/scale_slider/submit_button_hover.png" id="6_ay2i2"]
-[ext_resource type="PackedScene" uid="uid://dvxkd3km0hrow" path="res://entities/game_object/test_game_object/test_game_object.tscn" id="6_iefuh"]
 [ext_resource type="Texture2D" uid="uid://cmgks0ftftqb0" path="res://scenes/game/player_console/scale_slider/submit_button_pressed.png" id="7_c0col"]
 [ext_resource type="Texture2D" uid="uid://detyjx5sknklt" path="res://scenes/game/player_console/scale_slider/slider_y_handle_highlight.png" id="7_loc6v"]
 [ext_resource type="Script" path="res://scenes/game/player_card/player_card.gd" id="13_vwfak"]
@@ -30,6 +29,12 @@
 [ext_resource type="Texture2D" uid="uid://cceml3y62tmxj" path="res://scenes/game/rules_book/rules_book_decoration.png" id="22_xu78g"]
 [ext_resource type="Texture2D" uid="uid://dpomnx7tn0oef" path="res://scenes/game/rules_book/x_slider.png" id="23_qvq2k"]
 [ext_resource type="Texture2D" uid="uid://di6a6g725w4ys" path="res://scenes/game/rules_book/y_slider.png" id="24_w8y4h"]
+[ext_resource type="Texture2D" uid="uid://dhoqd44150m78" path="res://scenes/game/timer/timer_under.png" id="26_q4kdy"]
+[ext_resource type="Texture2D" uid="uid://bapcdqf0efg0h" path="res://scenes/game/timer/timer_over.png" id="27_0f6jg"]
+[ext_resource type="Texture2D" uid="uid://c8hlnrlcacf" path="res://scenes/game/timer/timer_fill.png" id="28_0sodi"]
+[ext_resource type="Script" path="res://scenes/game/timer/timer_progress_bar.gd" id="29_0vk04"]
+[ext_resource type="PackedScene" uid="uid://b3jayt3tv6ean" path="res://entities/game_object/box/box.tscn" id="29_frn3b"]
+[ext_resource type="PackedScene" uid="uid://6etj6v6ac1un" path="res://entities/game_object/cactus/cactus.tscn" id="29_qr1q6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_co8uf"]
 bg_color = Color(0.560784, 0.827451, 1, 1)
@@ -655,20 +660,32 @@ texture = ExtResource("19_ty4gj")
 expand_mode = 1
 stretch_mode = 2
 
+[node name="TimerProgressBar" type="TextureProgressBar" parent="UI"]
+offset_left = 24.0
+offset_top = 19.0
+offset_right = 147.0
+offset_bottom = 142.0
+step = 0.01
+fill_mode = 5
+texture_under = ExtResource("26_q4kdy")
+texture_over = ExtResource("27_0f6jg")
+texture_progress = ExtResource("28_0sodi")
+script = ExtResource("29_0vk04")
+
 [node name="PlayerConsoleManager" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("3_26j68")
 
 [node name="GameObjectManager" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(644, 262)
+position = Vector2(644, 212)
 script = ExtResource("4_fmdik")
-game_object_scenes = Array[PackedScene]([ExtResource("6_iefuh")])
+game_object_scenes = Array[PackedScene]([ExtResource("29_frn3b"), ExtResource("29_qr1q6")])
 
 [node name="GameObjectOutline" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_8ebnn")
-position = Vector2(644, 262)
+position = Vector2(644, 212)
 scale = Vector2(4, 4)
 
 [node name="PointsManager" type="Node2D" parent="."]

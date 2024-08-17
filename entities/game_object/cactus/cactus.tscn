@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://6etj6v6ac1un"]
+
+[ext_resource type="PackedScene" uid="uid://d1sgsr5vtsvbn" path="res://entities/game_object/game_object.tscn" id="1_fvaic"]
+[ext_resource type="Texture2D" uid="uid://ci6c8fyoiihq" path="res://entities/game_object/cactus/cactus.png" id="2_0td8w"]
+
+[node name="Cactus" instance=ExtResource("1_fvaic")]
+texture = ExtResource("2_0td8w")
+max_scale = Vector2(52, 11)
+min_scale = Vector2(1, 1)
