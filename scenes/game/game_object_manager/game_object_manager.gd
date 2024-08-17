@@ -7,8 +7,8 @@ class_name GameObjectManager extends Node2D
 var current_game_object: GameObject
 var scale_to_match: float
 
-func _ready() -> void:
-	spawn_game_object()
+signal game_object_spawned()
+signal game_object_destroyed()
 	
 
 func spawn_game_object() -> void:
@@ -29,3 +29,12 @@ func spawn_game_object() -> void:
 	scale_to_match = randf_range(min_scale, max_scale)
 	game_object_outline.texture = current_game_object.texture
 	game_object_outline.scale = Vector2(scale_to_match, scale_to_match)
+	
+	game_object_spawned.emit()
+
+
+func _on_submit_button_pressed():
+	current_game_object.queue_free()
+	game_object_outline.texture = null
+	
+	game_object_destroyed.emit()

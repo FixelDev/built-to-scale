@@ -43,16 +43,22 @@ theme_override_constants/separation = 164
 alignment = 1
 
 [node name="ScaleSliderX" parent="UI/Table/HBoxContainer" instance=ExtResource("1_5axh8")]
+unique_name_in_owner = true
 layout_mode = 2
+editable = false
 scale_multiplier = Vector2(0.1, 0)
 
 [node name="ScaleSliderY" parent="UI/Table/HBoxContainer" instance=ExtResource("1_5axh8")]
+unique_name_in_owner = true
 layout_mode = 2
+editable = false
 scale_multiplier = Vector2(0, 0.1)
 
 [node name="SubmitButton" type="Button" parent="UI/Table/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
+disabled = true
 text = "SUBMIT"
 
 [node name="PointsLabel" type="Label" parent="UI"]
@@ -84,5 +90,16 @@ position = Vector2(644, 262)
 [node name="PointsManager" type="Node2D" parent="."]
 script = ExtResource("6_20o6s")
 
+[node name="Timers" type="Node" parent="."]
+
+[node name="GameTimer" type="Timer" parent="Timers"]
+wait_time = 6.0
+one_shot = true
+autostart = true
+
 [connection signal="pressed" from="UI/Table/HBoxContainer/SubmitButton" to="PlayerConsoleManager" method="_on_submit_button_pressed"]
-[connection signal="submit_button_pressed" from="PlayerConsoleManager" to="PointsManager" method="_on_player_console_manager_submit_button_pressed"]
+[connection signal="pressed" from="UI/Table/HBoxContainer/SubmitButton" to="GameObjectManager" method="_on_submit_button_pressed"]
+[connection signal="accuracy_calculated" from="PlayerConsoleManager" to="PointsManager" method="_on_player_console_manager_accuracy_calculated"]
+[connection signal="game_object_destroyed" from="GameObjectManager" to="PlayerConsoleManager" method="_on_game_object_manager_game_object_destroyed"]
+[connection signal="game_object_spawned" from="GameObjectManager" to="PlayerConsoleManager" method="_on_game_object_manager_game_object_spawned"]
+[connection signal="timeout" from="Timers/GameTimer" to="PlayerConsoleManager" method="_on_game_timer_timeout"]

@@ -1,11 +1,20 @@
 class_name PlayerConsoleManager extends Node2D
 
 @onready var game_object_manager = %GameObjectManager
+@onready var scale_slider_x = %ScaleSliderX
+@onready var scale_slider_y = %ScaleSliderY
+@onready var submit_button = %SubmitButton
 
-signal submit_button_pressed(accuracy: float)
+signal accuracy_calculated(accuracy: float)
 
 var scaling_factor: Vector2
 var accuracy: float
+
+
+func _ready() -> void:
+	await get_tree().create_timer(1).timeout
+	
+	game_object_manager.spawn_game_object()
 	
 
 func _process(delta) -> void:	
@@ -45,11 +54,6 @@ func _on_scale_slider_used(scaling_factor: Vector2) -> void:
 	self.scaling_factor = scaling_factor
 
 
-func _on_submit_button_pressed():
-	calculate_accuracy()
-	submit_button_pressed.emit(accuracy)
-	print(accuracy)
-
 func calculate_accuracy() -> void:
 	var current_scale: Vector2 = game_object_manager.current_game_object.scale
 	
@@ -57,3 +61,35 @@ func calculate_accuracy() -> void:
 	var percentage_y: float = calculate_percentage(current_scale.y, game_object_manager.scale_to_match)
 	
 	accuracy = (percentage_x + percentage_y) / 2
+
+
+func _on_game_object_manager_game_object_spawned():
+	toggle_console_tools(true)
+	
+
+func toggle_console_tools(enabled: bool) -> void:
+	scale_slider_x.editable = enabled
+	scale_slider_y.editable = enabled
+	submit_button.disabled = !enabled
+
+
+func _on_game_object_manager_game_object_destroyed():
+	calculate_accuracy()
+	accuracy_calculated.emit(accuracy)
+	
+	await get_tree().create_timer(2).timeout
+	
+	game_object_manager.spawn_game_object()
+
+
+func _on_submit_button_pressed():
+	toggle_console_tools(false)
+
+
+func _on_game_timer_timeout():
+	toggle_console_tools(false)
+	
+	await get_tree().create_timer(2).timeout
+	
+	SceneManager.change_scene(SceneManager.game_over_scene)
+	

@@ -6,7 +6,7 @@ func _ready() -> void:
 	Globals.stats_changed.connect(_on_stats_changed)
 
 
-func _on_player_console_manager_submit_button_pressed(accuracy):
+func _on_player_console_manager_accuracy_calculated(accuracy):
 	var points_to_add: int = 0
 	
 	if accuracy >= 0.98:
