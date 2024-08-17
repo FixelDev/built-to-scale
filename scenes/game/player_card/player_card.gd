@@ -2,6 +2,8 @@ extends PanelContainer
 
 @onready var player_name = %PlayerName
 
+func _ready() -> void:
+	show()
 
 func _on_start_button_pressed():
 	if player_name.text.length() <= 0:
