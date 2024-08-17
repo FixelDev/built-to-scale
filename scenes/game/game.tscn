@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://caumargkuom31"]
+[gd_scene load_steps=71 format=3 uid="uid://caumargkuom31"]
 
 [ext_resource type="PackedScene" uid="uid://csf6q162d5e8q" path="res://scenes/game/player_console/scale_slider/scale_slider.tscn" id="1_5axh8"]
 [ext_resource type="Texture2D" uid="uid://cvhms6cgh6lo4" path="res://scenes/game/player_console/score_panel.png" id="1_5jlqo"]
@@ -23,6 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://ejou734cgw11" path="res://scenes/game/player_card/player_card_panel.png" id="14_hjkh8"]
 [ext_resource type="Theme" uid="uid://eigjusjmirew" path="res://scenes/game/player_card/player_card_theme.tres" id="14_u72o2"]
 [ext_resource type="Texture2D" uid="uid://ck5eed6kwxjqx" path="res://scenes/game/player_card/photo.png" id="16_a8nq0"]
+[ext_resource type="Texture2D" uid="uid://ck4lxatxvyrqd" path="res://scenes/game/player_console/table/radiation.png" id="17_booj3"]
+[ext_resource type="Texture2D" uid="uid://3e88waw5e4mm" path="res://utilities/border.png" id="18_aerrk"]
 [ext_resource type="FontFile" uid="uid://bomgmu63wr4da" path="res://fonts/ThaleahFat.ttf" id="18_g2n0c"]
 [ext_resource type="Texture2D" uid="uid://cjkwlm4vrafww" path="res://scenes/game/player_card/stamp.png" id="19_ty4gj"]
 [ext_resource type="Texture2D" uid="uid://cialke22ga4bs" path="res://scenes/game/player_card/accept_button_hover.png" id="20_dlfx0"]
@@ -94,6 +96,13 @@ texture_margin_left = 10.0
 texture_margin_top = 10.0
 texture_margin_right = 10.0
 texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k31y2"]
+texture = ExtResource("18_aerrk")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h1s0u"]
 texture = ExtResource("14_hjkh8")
@@ -363,6 +372,50 @@ text = "Y SCALE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TextureRect" type="TextureRect" parent="UI/Table"]
+layout_mode = 0
+offset_left = 247.0
+offset_top = 578.0
+offset_right = 407.0
+offset_bottom = 738.0
+texture = ExtResource("17_booj3")
+
+[node name="TextureRect2" type="TextureRect" parent="UI/Table"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="UI/Table"]
+modulate = Color(1, 1, 1, 0.270588)
+layout_mode = 0
+offset_left = 31.0
+offset_top = 553.0
+offset_right = 236.0
+offset_bottom = 660.0
+rotation = -0.183726
+theme_override_styles/panel = SubResource("StyleBoxTexture_k31y2")
+
+[node name="Label" type="Label" parent="UI/Table/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.5
+offset_top = -41.5
+offset_right = 39.5
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.38176, 1.38176)
+theme_override_colors/font_color = Color(0.180392, 0.133333, 0.184314, 1)
+theme_override_font_sizes/font_size = 32
+text = "PROPERTY 
+OF M.O.S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="PlayerCard" type="PanelContainer" parent="UI"]
 visible = false
 anchors_preset = 8
@@ -552,9 +605,9 @@ script = ExtResource("21_l8vi2")
 [node name="Panel2" type="Panel" parent="UI/RulesBook"]
 layout_mode = 0
 offset_left = -179.0
-offset_top = -288.0
+offset_top = -310.0
 offset_right = -135.0
-offset_bottom = 329.0
+offset_bottom = 351.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_g30fu")
 
 [node name="PanelContainer" type="PanelContainer" parent="UI/RulesBook"]
@@ -585,7 +638,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 64
 text = "-ministry of scale-"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -593,7 +646,7 @@ vertical_alignment = 1
 [node name="Label2" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 32
 text = "Offical workstation manual"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -764,20 +817,20 @@ text = "BEGIn"
 [node name="Panel" type="Panel" parent="UI/RulesBook"]
 layout_mode = 0
 offset_left = -203.0
-offset_top = -283.0
+offset_top = -304.0
 offset_right = -127.0
-offset_bottom = 325.0
+offset_bottom = 345.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_3ds6p")
 
 [node name="TextureRect" type="TextureRect" parent="UI/RulesBook"]
 modulate = Color(1, 1, 1, 0.219608)
 layout_mode = 2
-offset_left = 325.0
-offset_top = 196.0
-offset_right = 612.0
-offset_bottom = 196.0
+offset_left = 316.0
+offset_top = 220.0
+offset_right = 603.0
+offset_bottom = 220.0
 rotation = -0.337781
-scale = Vector2(0.766117, 0.766117)
+scale = Vector2(0.841601, 0.841601)
 texture = ExtResource("19_ty4gj")
 expand_mode = 1
 stretch_mode = 2
