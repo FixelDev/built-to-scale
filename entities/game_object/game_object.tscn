@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1sgsr5vtsvbn"]
+[gd_scene load_steps=4 format=3 uid="uid://d1sgsr5vtsvbn"]
 
 [ext_resource type="Script" path="res://entities/game_object/game_object.gd" id="1_5xxkr"]
+[ext_resource type="Shader" path="res://entities/game_object/game_object_destroy.gdshader" id="1_k8rtg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ipcf"]
+shader = ExtResource("1_k8rtg")
+shader_parameter/color = Color(0.555981, 0.993621, 0.866131, 1)
+shader_parameter/progress = 0.0
 
 [node name="GameObject" type="Sprite2D"]
+material = SubResource("ShaderMaterial_6ipcf")
 script = ExtResource("1_5xxkr")

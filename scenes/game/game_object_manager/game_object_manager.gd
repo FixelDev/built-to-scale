@@ -3,6 +3,7 @@ class_name GameObjectManager extends Node2D
 @export var game_object_scenes: Array[PackedScene] = []
 
 @onready var game_object_outline = %GameObjectOutline
+@onready var game_object_destroy_particles = %GameObjectDestroyParticles
 
 var current_game_object: GameObject
 var scale_to_match: float
@@ -27,14 +28,19 @@ func spawn_game_object() -> void:
 		max_scale = current_game_object.max_scale.y
 		
 	scale_to_match = randf_range(min_scale, max_scale)
-	game_object_outline.texture = current_game_object.texture
-	game_object_outline.scale = Vector2(scale_to_match, scale_to_match)
+	
+	
+	await get_tree().create_timer(0.7).timeout
 	
 	game_object_spawned.emit()
+	game_object_outline.texture = current_game_object.texture
+	game_object_outline.scale = Vector2(scale_to_match, scale_to_match)
 
 
 func _on_submit_button_pressed():
-	current_game_object.queue_free()
-	game_object_outline.texture = null
+	current_game_object.destroy()
 	
+	await get_tree().create_timer(0.6).timeout
+	game_object_destroy_particles.emitting = true
+	game_object_outline.texture = null
 	game_object_destroyed.emit()

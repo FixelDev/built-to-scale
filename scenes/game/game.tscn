@@ -1,7 +1,9 @@
-[gd_scene load_steps=61 format=3 uid="uid://caumargkuom31"]
+[gd_scene load_steps=68 format=3 uid="uid://caumargkuom31"]
 
 [ext_resource type="PackedScene" uid="uid://csf6q162d5e8q" path="res://scenes/game/player_console/scale_slider/scale_slider.tscn" id="1_5axh8"]
 [ext_resource type="Texture2D" uid="uid://cvhms6cgh6lo4" path="res://scenes/game/player_console/score_panel.png" id="1_5jlqo"]
+[ext_resource type="Shader" path="res://utilities/scrolling_pattern.gdshader" id="1_mkluw"]
+[ext_resource type="Texture2D" uid="uid://c80csbh010pkj" path="res://utilities/tiled_bg.png" id="1_rrnvl"]
 [ext_resource type="Texture2D" uid="uid://br8w1vhp54p7l" path="res://scenes/game/player_console/scale_slider/slider_x_handle_highlight.png" id="2_hwd4f"]
 [ext_resource type="Texture2D" uid="uid://ce3ikrj1vposp" path="res://scenes/game/player_console/table/table_top.png" id="2_i3xno"]
 [ext_resource type="Texture2D" uid="uid://b5v84g3t2pxod" path="res://scenes/game/player_console/scale_slider/slider_y_handle.png" id="2_mt5gp"]
@@ -36,8 +38,15 @@
 [ext_resource type="PackedScene" uid="uid://b3jayt3tv6ean" path="res://entities/game_object/box/box.tscn" id="29_frn3b"]
 [ext_resource type="PackedScene" uid="uid://6etj6v6ac1un" path="res://entities/game_object/cactus/cactus.tscn" id="29_qr1q6"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_co8uf"]
-bg_color = Color(0.560784, 0.827451, 1, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_20xxp"]
+shader = ExtResource("1_mkluw")
+shader_parameter/speed = 0.05
+shader_parameter/color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nnigy"]
+texture = ExtResource("1_rrnvl")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxm14"]
 bg_color = Color(0.498039, 0.439216, 0.541176, 1)
@@ -123,12 +132,15 @@ texture_margin_top = 7.0
 texture_margin_right = 7.0
 texture_margin_bottom = 7.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g30fu"]
+bg_color = Color(0.180392, 0.133333, 0.184314, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r6tvl"]
 texture = ExtResource("21_pubyp")
-texture_margin_left = 17.0
-texture_margin_top = 7.0
-texture_margin_right = 20.0
-texture_margin_bottom = 7.0
+texture_margin_left = 22.0
+texture_margin_top = 12.0
+texture_margin_right = 26.0
+texture_margin_bottom = 13.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_er4m1"]
 content_margin_left = 1.0
@@ -146,6 +158,26 @@ bg_color = Color(0.6, 0.6, 0.6, 0.392157)
 texture = ExtResource("22_xu78g")
 axis_stretch_vertical = 1
 
+[sub_resource type="Curve" id="Curve_iokyf"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_afeer"]
+curve = SubResource("Curve_iokyf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xeypy"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 200.0
+initial_velocity_max = 800.0
+gravity = Vector3(0, 0, 0)
+scale_min = 65.94
+scale_max = 85.94
+scale_curve = SubResource("CurveTexture_afeer")
+color = Color(0.729471, 0.99692, 0.910884, 1)
+hue_variation_min = -0.14
+hue_variation_max = 0.04
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8ebnn"]
 shader = ExtResource("3_emfrl")
 shader_parameter/line_color = Vector4(1, 1, 1, 1)
@@ -156,9 +188,14 @@ shader_parameter/phase_speed = 5.0
 [node name="Game" type="Node2D"]
 
 [node name="Panel" type="Panel" parent="."]
-offset_right = 1282.0
-offset_bottom = 706.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_co8uf")
+texture_repeat = 2
+material = SubResource("ShaderMaterial_20xxp")
+offset_left = -235.0
+offset_top = 49.0
+offset_right = 1236.0
+offset_bottom = 859.0
+rotation = -0.265598
+theme_override_styles/panel = SubResource("StyleBoxTexture_nnigy")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -266,34 +303,63 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_f4f56")
 
-[node name="ScorePanel" type="PanelContainer" parent="UI/Table/TableTop"]
+[node name="XScalePanel" type="PanelContainer" parent="UI/Table/TableTop"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -288.0
+offset_left = -862.0
 offset_top = -28.5
-offset_right = -60.1
-offset_bottom = 30.5
+offset_right = -716.0
+offset_bottom = 31.5
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5g8le")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/Table/TableTop/ScorePanel"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/Table/TableTop/XScalePanel"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 5
 
-[node name="PointsLabel" type="Label" parent="UI/Table/TableTop/ScorePanel/MarginContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(187.9, 0)
+[node name="Label" type="Label" parent="UI/Table/TableTop/XScalePanel/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
-text = "Points: 0"
+text = "X SCALE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YScalePanel" type="PanelContainer" parent="UI/Table/TableTop"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -575.0
+offset_top = -28.5
+offset_right = -429.0
+offset_bottom = 31.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5g8le")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Table/TableTop/YScalePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="UI/Table/TableTop/YScalePanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Y SCALE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -428,6 +494,45 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_2iwnp")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2iwnp")
 text = "Accept"
 
+[node name="ScorePanel" type="PanelContainer" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -263.0
+offset_top = 34.0
+offset_right = -35.1
+offset_bottom = 94.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_5g8le")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/ScorePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="PointsLabel" type="Label" parent="UI/ScorePanel/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(187.9, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Points: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimerProgressBar" type="TextureProgressBar" parent="UI"]
+offset_left = 24.0
+offset_top = 19.0
+offset_right = 147.0
+offset_bottom = 142.0
+step = 0.01
+fill_mode = 5
+texture_under = ExtResource("26_q4kdy")
+texture_over = ExtResource("27_0f6jg")
+texture_progress = ExtResource("28_0sodi")
+script = ExtResource("29_0vk04")
+
 [node name="RulesBook" type="Control" parent="UI"]
 visible = false
 layout_mode = 3
@@ -436,13 +541,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
+offset_left = -145.0
 offset_top = -20.0
-offset_right = 20.0
+offset_right = -105.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("21_l8vi2")
+
+[node name="Panel2" type="Panel" parent="UI/RulesBook"]
+layout_mode = 0
+offset_left = -179.0
+offset_top = -288.0
+offset_right = -135.0
+offset_bottom = 329.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g30fu")
 
 [node name="PanelContainer" type="PanelContainer" parent="UI/RulesBook"]
 layout_mode = 1
@@ -451,10 +564,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -172.0
-offset_top = -174.0
-offset_right = 172.0
-offset_bottom = 174.0
+offset_left = -168.0
+offset_top = -308.5
+offset_right = 416.0
+offset_bottom = 308.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_r6tvl")
@@ -510,6 +623,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
 text = "Use: "
 vertical_alignment = 1
 
@@ -520,6 +634,7 @@ texture = ExtResource("23_qvq2k")
 [node name="Label2" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
 text = "and: "
 vertical_alignment = 1
 
@@ -530,12 +645,14 @@ texture = ExtResource("24_w8y4h")
 [node name="Label3" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
 text = "to change scale"
 vertical_alignment = 1
 
 [node name="Label4" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
 text = "of incoming objects."
 vertical_alignment = 1
 
@@ -553,6 +670,7 @@ theme_override_constants/margin_bottom = 10
 [node name="Label4" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel2/MarginContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
 text = "match the scale of the object
 with the white outline."
 vertical_alignment = 1
@@ -577,6 +695,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel3/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
 text = "Use: "
 vertical_alignment = 1
 
@@ -588,6 +707,7 @@ expand_mode = 2
 [node name="Label2" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel3/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
 text = "when the object is ready."
 vertical_alignment = 1
 
@@ -605,6 +725,7 @@ theme_override_constants/margin_bottom = 10
 [node name="Label4" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel4/MarginContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
 text = "Because of the dangerous radiation
 of scaler3000, your shift
 will be very short."
@@ -624,6 +745,7 @@ theme_override_constants/margin_bottom = 10
 [node name="Label4" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel5/MarginContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
 text = "be fast and precise to be the best
 M.0.s employee!"
 vertical_alignment = 1
@@ -642,35 +764,23 @@ text = "BEGIn"
 [node name="Panel" type="Panel" parent="UI/RulesBook"]
 layout_mode = 0
 offset_left = -203.0
-offset_top = -215.0
+offset_top = -283.0
 offset_right = -127.0
-offset_bottom = 255.0
+offset_bottom = 325.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_3ds6p")
 
 [node name="TextureRect" type="TextureRect" parent="UI/RulesBook"]
 modulate = Color(1, 1, 1, 0.219608)
 layout_mode = 2
-offset_left = 102.0
-offset_top = 148.0
-offset_right = 389.0
-offset_bottom = 148.0
+offset_left = 325.0
+offset_top = 196.0
+offset_right = 612.0
+offset_bottom = 196.0
 rotation = -0.337781
-scale = Vector2(0.628783, 0.628783)
+scale = Vector2(0.766117, 0.766117)
 texture = ExtResource("19_ty4gj")
 expand_mode = 1
 stretch_mode = 2
-
-[node name="TimerProgressBar" type="TextureProgressBar" parent="UI"]
-offset_left = 24.0
-offset_top = 19.0
-offset_right = 147.0
-offset_bottom = 142.0
-step = 0.01
-fill_mode = 5
-texture_under = ExtResource("26_q4kdy")
-texture_over = ExtResource("27_0f6jg")
-texture_progress = ExtResource("28_0sodi")
-script = ExtResource("29_0vk04")
 
 [node name="PlayerConsoleManager" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -681,6 +791,16 @@ unique_name_in_owner = true
 position = Vector2(644, 212)
 script = ExtResource("4_fmdik")
 game_object_scenes = Array[PackedScene]([ExtResource("29_frn3b"), ExtResource("29_qr1q6")])
+
+[node name="GameObjectDestroyParticles" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(644, 212)
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_xeypy")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
 
 [node name="GameObjectOutline" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -700,8 +820,8 @@ one_shot = true
 
 [connection signal="pressed" from="UI/Table/TableBot/SubmitButton" to="PlayerConsoleManager" method="_on_submit_button_pressed"]
 [connection signal="pressed" from="UI/Table/TableBot/SubmitButton" to="GameObjectManager" method="_on_submit_button_pressed"]
+[connection signal="player_start" from="UI/PlayerCard" to="UI/RulesBook" method="_on_player_card_player_start"]
 [connection signal="pressed" from="UI/PlayerCard/MarginContainer/VBoxContainer/StartButton" to="UI/PlayerCard" method="_on_start_button_pressed"]
-[connection signal="pressed" from="UI/PlayerCard/MarginContainer/VBoxContainer/StartButton" to="UI/RulesBook" method="_on_start_button_pressed"]
 [connection signal="pressed" from="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/BeginButton" to="UI/RulesBook" method="_on_begin_button_pressed"]
 [connection signal="pressed" from="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/BeginButton" to="PlayerConsoleManager" method="_on_begin_button_pressed"]
 [connection signal="accuracy_calculated" from="PlayerConsoleManager" to="PointsManager" method="_on_player_console_manager_accuracy_calculated"]
