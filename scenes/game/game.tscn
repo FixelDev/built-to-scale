@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://caumargkuom31"]
+[gd_scene load_steps=56 format=3 uid="uid://caumargkuom31"]
 
 [ext_resource type="PackedScene" uid="uid://csf6q162d5e8q" path="res://scenes/game/player_console/scale_slider/scale_slider.tscn" id="1_5axh8"]
+[ext_resource type="Texture2D" uid="uid://cvhms6cgh6lo4" path="res://scenes/game/player_console/score_panel.png" id="1_5jlqo"]
 [ext_resource type="Texture2D" uid="uid://br8w1vhp54p7l" path="res://scenes/game/player_console/scale_slider/slider_x_handle_highlight.png" id="2_hwd4f"]
 [ext_resource type="Texture2D" uid="uid://ce3ikrj1vposp" path="res://scenes/game/player_console/table/table_top.png" id="2_i3xno"]
 [ext_resource type="Texture2D" uid="uid://b5v84g3t2pxod" path="res://scenes/game/player_console/scale_slider/slider_y_handle.png" id="2_mt5gp"]
@@ -18,12 +19,25 @@
 [ext_resource type="Texture2D" uid="uid://cmgks0ftftqb0" path="res://scenes/game/player_console/scale_slider/submit_button_pressed.png" id="7_c0col"]
 [ext_resource type="Texture2D" uid="uid://detyjx5sknklt" path="res://scenes/game/player_console/scale_slider/slider_y_handle_highlight.png" id="7_loc6v"]
 [ext_resource type="Script" path="res://scenes/game/player_card/player_card.gd" id="13_vwfak"]
+[ext_resource type="Texture2D" uid="uid://ejou734cgw11" path="res://scenes/game/player_card/player_card_panel.png" id="14_hjkh8"]
+[ext_resource type="Theme" uid="uid://eigjusjmirew" path="res://scenes/game/player_card/player_card_theme.tres" id="14_u72o2"]
+[ext_resource type="Texture2D" uid="uid://ck5eed6kwxjqx" path="res://scenes/game/player_card/photo.png" id="16_a8nq0"]
+[ext_resource type="FontFile" uid="uid://bomgmu63wr4da" path="res://fonts/ThaleahFat.ttf" id="18_g2n0c"]
+[ext_resource type="Texture2D" uid="uid://cjkwlm4vrafww" path="res://scenes/game/player_card/stamp.png" id="19_ty4gj"]
+[ext_resource type="Texture2D" uid="uid://cialke22ga4bs" path="res://scenes/game/player_card/accept_button_hover.png" id="20_dlfx0"]
+[ext_resource type="Script" path="res://scenes/game/rules_book/rules_book.gd" id="21_l8vi2"]
+[ext_resource type="Texture2D" uid="uid://bt4d576rqihtj" path="res://scenes/game/rules_book/rules_book_panel.png" id="21_pubyp"]
+[ext_resource type="Texture2D" uid="uid://cceml3y62tmxj" path="res://scenes/game/rules_book/rules_book_decoration.png" id="22_xu78g"]
+[ext_resource type="Texture2D" uid="uid://dpomnx7tn0oef" path="res://scenes/game/rules_book/x_slider.png" id="23_qvq2k"]
+[ext_resource type="Texture2D" uid="uid://di6a6g725w4ys" path="res://scenes/game/rules_book/y_slider.png" id="24_w8y4h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_co8uf"]
 bg_color = Color(0.560784, 0.827451, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxm14"]
 bg_color = Color(0.498039, 0.439216, 0.541176, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bivh8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_njnao"]
 
@@ -59,6 +73,73 @@ texture_margin_bottom = 8.0
 texture = ExtResource("2_i3xno")
 texture_margin_top = 6.0
 texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5g8le"]
+texture = ExtResource("1_5jlqo")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h1s0u"]
+texture = ExtResource("14_hjkh8")
+texture_margin_left = 19.0
+texture_margin_top = 19.0
+texture_margin_right = 19.0
+texture_margin_bottom = 19.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c611t"]
+content_margin_left = 1.0
+content_margin_top = 1.0
+content_margin_right = 1.0
+content_margin_bottom = 1.0
+bg_color = Color(0.282353, 0.290196, 0.466667, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gi1f0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3ddk"]
+bg_color = Color(0.854212, 0.885948, 0.968631, 1)
+expand_margin_left = 6.0
+expand_margin_right = 6.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0jn0h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6iw0l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v5vvd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2iwnp"]
+bg_color = Color(0.282353, 0.290196, 0.466667, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7iw61"]
+texture = ExtResource("20_dlfx0")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r6tvl"]
+texture = ExtResource("21_pubyp")
+texture_margin_left = 17.0
+texture_margin_top = 7.0
+texture_margin_right = 20.0
+texture_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_er4m1"]
+content_margin_left = 1.0
+content_margin_top = 1.0
+content_margin_right = 1.0
+content_margin_bottom = 1.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_guu5c"]
+bg_color = Color(0.6, 0.6, 0.6, 0.392157)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gbrlx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3ds6p"]
+texture = ExtResource("22_xu78g")
+axis_stretch_vertical = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8ebnn"]
 shader = ExtResource("3_emfrl")
@@ -105,7 +186,7 @@ offset_top = 6.0
 offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 84
+theme_override_constants/separation = 34
 alignment = 1
 
 [node name="ScaleSliderX" parent="UI/Table/TableBot/HBoxContainer" instance=ExtResource("1_5axh8")]
@@ -116,6 +197,29 @@ theme_override_icons/grabber_highlight = ExtResource("2_hwd4f")
 theme_override_icons/grabber_disabled = ExtResource("3_7ab8d")
 editable = false
 scale_multiplier = Vector2(0.1, 0)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Table/TableBot/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Table/TableBot/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.243137, 0.207843, 0.27451, 1)
+theme_override_font_sizes/font_size = 64
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="UI/Table/TableBot/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_bivh8")
+
+[node name="Label2" type="Label" parent="UI/Table/TableBot/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.243137, 0.207843, 0.27451, 1)
+theme_override_font_sizes/font_size = 64
+text = "-"
+horizontal_alignment = 1
 
 [node name="ScaleSliderY" parent="UI/Table/TableBot/HBoxContainer" instance=ExtResource("1_5axh8")]
 unique_name_in_owner = true
@@ -135,6 +239,8 @@ offset_top = 63.0
 offset_right = 1167.52
 offset_bottom = 159.255
 size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("18_g2n0c")
+theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_njnao")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_kebqe")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_sng3q")
@@ -150,22 +256,42 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = 85.0
+offset_top = 56.0
 offset_bottom = 137.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_f4f56")
 
-[node name="PointsLabel" type="Label" parent="UI"]
-unique_name_in_owner = true
-anchors_preset = 1
+[node name="ScorePanel" type="PanelContainer" parent="UI/Table/TableTop"]
+layout_mode = 1
+anchors_preset = 6
 anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -28.5
+offset_right = -60.1
+offset_bottom = 30.5
 grow_horizontal = 0
-theme_override_font_sizes/font_size = 31
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5g8le")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Table/TableTop/ScorePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="PointsLabel" type="Label" parent="UI/Table/TableTop/ScorePanel/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(187.9, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Points: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PlayerCard" type="PanelContainer" parent="UI"]
 anchors_preset = 8
@@ -179,6 +305,8 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("14_u72o2")
+theme_override_styles/panel = SubResource("StyleBoxTexture_h1s0u")
 script = ExtResource("13_vwfak")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/PlayerCard"]
@@ -191,27 +319,341 @@ theme_override_constants/margin_bottom = 10
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/PlayerCard/MarginContainer"]
 layout_mode = 2
 
+[node name="Label" type="Label" parent="UI/PlayerCard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "-MINISTRY OF SCALE-"
+
+[node name="Label2" type="Label" parent="UI/PlayerCard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "employee card"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="UI/PlayerCard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+theme_override_styles/separator = SubResource("StyleBoxFlat_c611t")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/PlayerCard/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 30
 
-[node name="Label" type="Label" parent="UI/PlayerCard/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/PlayerCard/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+texture = ExtResource("16_a8nq0")
+expand_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PlayerCard/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PlayerCard/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="UI/PlayerCard/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "NAME: "
 
-[node name="PlayerName" type="LineEdit" parent="UI/PlayerCard/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="PlayerName" type="LineEdit" parent="UI/PlayerCard/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_placeholder_color = Color(0.301961, 0.396078, 0.705882, 1)
+theme_override_colors/font_color = Color(0.282353, 0.290196, 0.466667, 1)
+theme_override_fonts/font = ExtResource("18_g2n0c")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gi1f0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v3ddk")
 placeholder_text = "Enter Your Name..."
 max_length = 12
-expand_to_text_length = true
 
-[node name="Spacer" type="Control" parent="UI/PlayerCard/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 15.295)
+[node name="Label" type="Label" parent="UI/PlayerCard/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "AGE: 35"
+
+[node name="Label2" type="Label" parent="UI/PlayerCard/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "ID: 24247893"
+
+[node name="Label3" type="Label" parent="UI/PlayerCard/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "EXP: 23.02.2142"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/PlayerCard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="UI/PlayerCard/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_0jn0h")
+
+[node name="TextureRect" type="TextureRect" parent="UI/PlayerCard/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("19_ty4gj")
+stretch_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="UI/PlayerCard/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 85
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6iw0l")
+
+[node name="HSeparator3" type="HSeparator" parent="UI/PlayerCard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+theme_override_styles/separator = SubResource("StyleBoxFlat_c611t")
 
 [node name="StartButton" type="Button" parent="UI/PlayerCard/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 41.765)
 layout_mode = 2
-text = "START"
+theme_override_colors/font_hover_color = Color(0.282353, 0.290196, 0.466667, 1)
+theme_override_fonts/font = ExtResource("18_g2n0c")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v5vvd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_2iwnp")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7iw61")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2iwnp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2iwnp")
+text = "Accept"
+
+[node name="RulesBook" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("21_l8vi2")
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/RulesBook"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -174.0
+offset_right = 172.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_r6tvl")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/RulesBook/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/RulesBook/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "-ministry of scale-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Offical workstation manual"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator4" type="HSeparator" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+theme_override_styles/separator = SubResource("StyleBoxFlat_er4m1")
+
+[node name="Panel" type="PanelContainer" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_guu5c")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Use: "
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("23_qvq2k")
+
+[node name="Label2" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "and: "
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("24_w8y4h")
+
+[node name="Label3" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "to change scale"
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "of incoming objects."
+vertical_alignment = 1
+
+[node name="Panel2" type="PanelContainer" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_guu5c")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel2"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label4" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel2/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "match the scale of the object
+with the white outline."
+vertical_alignment = 1
+
+[node name="Panel3" type="PanelContainer" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_guu5c")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel3"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel3/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel3/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel3/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Use: "
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel3/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_nvrb3")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel3/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "when the object is ready."
+vertical_alignment = 1
+
+[node name="Panel4" type="PanelContainer" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_guu5c")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel4"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label4" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel4/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Because of the dangerous radiation
+of scaler3000, your shift
+will be very short."
+vertical_alignment = 1
+
+[node name="Panel5" type="PanelContainer" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_guu5c")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel5"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label4" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel5/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "be fast and precise to be the best
+M.0.s employee!"
+vertical_alignment = 1
+
+[node name="HSeparator5" type="HSeparator" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_gbrlx")
+
+[node name="BeginButton" type="Button" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("18_g2n0c")
+theme_override_font_sizes/font_size = 32
+text = "BEGIn"
+
+[node name="Panel" type="Panel" parent="UI/RulesBook"]
+layout_mode = 0
+offset_left = -203.0
+offset_top = -215.0
+offset_right = -127.0
+offset_bottom = 255.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_3ds6p")
+
+[node name="TextureRect" type="TextureRect" parent="UI/RulesBook"]
+modulate = Color(1, 1, 1, 0.219608)
+layout_mode = 2
+offset_left = 102.0
+offset_top = 148.0
+offset_right = 389.0
+offset_bottom = 148.0
+rotation = -0.337781
+scale = Vector2(0.628783, 0.628783)
+texture = ExtResource("19_ty4gj")
+expand_mode = 1
+stretch_mode = 2
 
 [node name="PlayerConsoleManager" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -234,13 +676,16 @@ script = ExtResource("6_20o6s")
 [node name="Timers" type="Node" parent="."]
 
 [node name="GameTimer" type="Timer" parent="Timers"]
-wait_time = 6.0
+unique_name_in_owner = true
+wait_time = 50.0
 one_shot = true
-autostart = true
 
 [connection signal="pressed" from="UI/Table/TableBot/SubmitButton" to="PlayerConsoleManager" method="_on_submit_button_pressed"]
 [connection signal="pressed" from="UI/Table/TableBot/SubmitButton" to="GameObjectManager" method="_on_submit_button_pressed"]
 [connection signal="pressed" from="UI/PlayerCard/MarginContainer/VBoxContainer/StartButton" to="UI/PlayerCard" method="_on_start_button_pressed"]
+[connection signal="pressed" from="UI/PlayerCard/MarginContainer/VBoxContainer/StartButton" to="UI/RulesBook" method="_on_start_button_pressed"]
+[connection signal="pressed" from="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/BeginButton" to="PlayerConsoleManager" method="_on_begin_button_pressed"]
+[connection signal="pressed" from="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/BeginButton" to="UI/RulesBook" method="_on_begin_button_pressed"]
 [connection signal="accuracy_calculated" from="PlayerConsoleManager" to="PointsManager" method="_on_player_console_manager_accuracy_calculated"]
 [connection signal="game_object_destroyed" from="GameObjectManager" to="PlayerConsoleManager" method="_on_game_object_manager_game_object_destroyed"]
 [connection signal="game_object_spawned" from="GameObjectManager" to="PlayerConsoleManager" method="_on_game_object_manager_game_object_spawned"]

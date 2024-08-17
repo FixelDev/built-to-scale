@@ -4,18 +4,13 @@ class_name PlayerConsoleManager extends Node2D
 @onready var scale_slider_x = %ScaleSliderX
 @onready var scale_slider_y = %ScaleSliderY
 @onready var submit_button = %SubmitButton
+@onready var game_timer = %GameTimer
 
 signal accuracy_calculated(accuracy: float)
 
 var scaling_factor: Vector2
 var accuracy: float
 
-
-func _ready() -> void:
-	await get_tree().create_timer(1).timeout
-	
-	game_object_manager.spawn_game_object()
-	
 
 func _process(delta) -> void:	
 	if scaling_factor == Vector2.ZERO:
@@ -92,3 +87,9 @@ func _on_game_timer_timeout():
 	
 	SceneManager.load_scene(SceneManager.game_over_scene)
 	
+
+func _on_begin_button_pressed():
+	await get_tree().create_timer(1).timeout
+	
+	game_object_manager.spawn_game_object()
+	game_timer.start()
