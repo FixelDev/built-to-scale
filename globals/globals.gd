@@ -26,7 +26,3 @@ func _ready() -> void:
 		"game_id": "builttoscale",
 		"log_level": 1
  	})
-	
-	SilentWolf.configure_scores({
-	"open_scene_on_close": "res://scenes/menu/menu.tscn"
-  })
