@@ -2,6 +2,8 @@ class_name PlayerConsoleManager extends Node2D
 
 @onready var game_object_manager = %GameObjectManager
 
+signal submit_button_pressed(accuracy: float)
+
 var scaling_factor: Vector2
 var accuracy: float
 	
@@ -36,7 +38,7 @@ func calculate_percentage(current_scale: float, scale_to_match: float) -> float:
 		bigger_value = current_scale
 		smaller_value = scale_to_match
 		
-	return (smaller_value / bigger_value) * 100.0
+	return smaller_value / bigger_value
 
 	
 func _on_scale_slider_used(scaling_factor: Vector2) -> void:
@@ -45,8 +47,8 @@ func _on_scale_slider_used(scaling_factor: Vector2) -> void:
 
 func _on_submit_button_pressed():
 	calculate_accuracy()
+	submit_button_pressed.emit(accuracy)
 	print(accuracy)
-
 
 func calculate_accuracy() -> void:
 	var current_scale: Vector2 = game_object_manager.current_game_object.scale

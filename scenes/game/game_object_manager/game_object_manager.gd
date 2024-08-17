@@ -27,4 +27,5 @@ func spawn_game_object() -> void:
 		max_scale = current_game_object.max_scale.y
 		
 	scale_to_match = randf_range(min_scale, max_scale)
+	game_object_outline.texture = current_game_object.texture
 	game_object_outline.scale = Vector2(scale_to_match, scale_to_match)
