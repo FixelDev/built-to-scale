@@ -5,5 +5,5 @@ extends Node2D
 @export var game_over_scene: PackedScene
 
 
-func change_scene(scene: PackedScene) -> void:
+func load_scene(scene: PackedScene) -> void:
 	get_tree().change_scene_to_packed(scene)

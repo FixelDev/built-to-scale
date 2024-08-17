@@ -91,5 +91,5 @@ func _on_game_timer_timeout():
 	
 	await get_tree().create_timer(2).timeout
 	
-	SceneManager.change_scene(SceneManager.game_over_scene)
+	SceneManager.load_scene(SceneManager.game_over_scene)
 	
