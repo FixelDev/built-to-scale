@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv6okwoihceni"]
+
+[ext_resource type="PackedScene" uid="uid://d1sgsr5vtsvbn" path="res://entities/game_object/game_object.tscn" id="1_pmll3"]
+[ext_resource type="Texture2D" uid="uid://bliv21sbjld3e" path="res://entities/game_object/cake/cake.png" id="2_wsoih"]
+
+[node name="Cake" instance=ExtResource("1_pmll3")]
+texture = ExtResource("2_wsoih")
+max_scale = Vector2(37, 13)
+min_scale = Vector2(3, 2)

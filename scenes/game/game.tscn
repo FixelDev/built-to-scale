@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://caumargkuom31"]
+[gd_scene load_steps=76 format=3 uid="uid://caumargkuom31"]
 
 [ext_resource type="PackedScene" uid="uid://csf6q162d5e8q" path="res://scenes/game/player_console/scale_slider/scale_slider.tscn" id="1_5axh8"]
 [ext_resource type="Texture2D" uid="uid://cvhms6cgh6lo4" path="res://scenes/game/player_console/score_panel.png" id="1_5jlqo"]
@@ -38,6 +38,14 @@
 [ext_resource type="Script" path="res://scenes/game/timer/timer_progress_bar.gd" id="29_0vk04"]
 [ext_resource type="PackedScene" uid="uid://b3jayt3tv6ean" path="res://entities/game_object/box/box.tscn" id="29_frn3b"]
 [ext_resource type="PackedScene" uid="uid://6etj6v6ac1un" path="res://entities/game_object/cactus/cactus.tscn" id="29_qr1q6"]
+[ext_resource type="PackedScene" uid="uid://byi5k3jq2am2n" path="res://entities/game_object/banana/banana.tscn" id="37_xj8sl"]
+[ext_resource type="PackedScene" uid="uid://cv6okwoihceni" path="res://entities/game_object/cake/cake.tscn" id="38_d1ooh"]
+[ext_resource type="PackedScene" uid="uid://chdr2tgcw8m0o" path="res://entities/game_object/car/car.tscn" id="39_42qmj"]
+[ext_resource type="PackedScene" uid="uid://b4i48bc1364fd" path="res://entities/game_object/donut/donut.tscn" id="40_7jneq"]
+[ext_resource type="PackedScene" uid="uid://d4jwrsxxkxi0n" path="res://entities/game_object/lemon/lemon.tscn" id="41_gfnfh"]
+[ext_resource type="PackedScene" uid="uid://ouakod2522pq" path="res://entities/game_object/magnet/magnet.tscn" id="42_76abc"]
+[ext_resource type="PackedScene" uid="uid://yaepasplwfhk" path="res://entities/game_object/pipes/pipes.tscn" id="43_0ulg4"]
+[ext_resource type="PackedScene" uid="uid://fwochakxswkw" path="res://entities/game_object/tv/tv.tscn" id="44_0mu1x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxm14"]
 bg_color = Color(0.498039, 0.439216, 0.541176, 1)
@@ -186,6 +194,7 @@ shader_parameter/phase_speed = 5.0
 [node name="Game" type="Node2D"]
 
 [node name="ScrollingBg" parent="." instance=ExtResource("1_mijdp")]
+offset_right = 1261.0
 
 [node name="AccuracyLabel" type="Label" parent="."]
 unique_name_in_owner = true
@@ -626,9 +635,9 @@ script = ExtResource("21_l8vi2")
 [node name="Panel2" type="Panel" parent="UI/RulesBook"]
 layout_mode = 0
 offset_left = -179.0
-offset_top = -310.0
+offset_top = -294.0
 offset_right = -135.0
-offset_bottom = 351.0
+offset_bottom = 334.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_g30fu")
 
 [node name="PanelContainer" type="PanelContainer" parent="UI/RulesBook"]
@@ -749,6 +758,25 @@ text = "match the scale of the object
 with the white outline."
 vertical_alignment = 1
 
+[node name="Panel4" type="PanelContainer" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_guu5c")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel4"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label4" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel4/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "the White Outline will disappear 
+after a second so memorize it well!"
+vertical_alignment = 1
+
 [node name="Panel3" type="PanelContainer" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_guu5c")
@@ -785,26 +813,6 @@ theme_override_font_sizes/font_size = 32
 text = "when the object is ready."
 vertical_alignment = 1
 
-[node name="Panel4" type="PanelContainer" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_guu5c")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel4"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Label4" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel4/MarginContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "Because of the dangerous radiation
-of scaler3000, your shift
-will be very short."
-vertical_alignment = 1
-
 [node name="Panel5" type="PanelContainer" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_guu5c")
@@ -838,9 +846,9 @@ text = "BEGIn"
 [node name="Panel" type="Panel" parent="UI/RulesBook"]
 layout_mode = 0
 offset_left = -203.0
-offset_top = -304.0
+offset_top = -288.0
 offset_right = -127.0
-offset_bottom = 345.0
+offset_bottom = 328.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_3ds6p")
 
 [node name="TextureRect" type="TextureRect" parent="UI/RulesBook"]
@@ -864,7 +872,7 @@ script = ExtResource("3_26j68")
 unique_name_in_owner = true
 position = Vector2(644, 212)
 script = ExtResource("4_fmdik")
-game_object_scenes = Array[PackedScene]([ExtResource("29_frn3b"), ExtResource("29_qr1q6")])
+game_object_scenes = Array[PackedScene]([ExtResource("29_frn3b"), ExtResource("29_qr1q6"), ExtResource("37_xj8sl"), ExtResource("38_d1ooh"), ExtResource("39_42qmj"), ExtResource("40_7jneq"), ExtResource("41_gfnfh"), ExtResource("42_76abc"), ExtResource("43_0ulg4"), ExtResource("44_0mu1x")])
 
 [node name="GameObjectDestroyParticles" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true

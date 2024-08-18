@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4i48bc1364fd"]
+
+[ext_resource type="PackedScene" uid="uid://d1sgsr5vtsvbn" path="res://entities/game_object/game_object.tscn" id="1_ku440"]
+[ext_resource type="Texture2D" uid="uid://clbsyu4tl5wch" path="res://entities/game_object/donut/donut.png" id="2_4cv1w"]
+
+[node name="Donut" instance=ExtResource("1_ku440")]
+texture = ExtResource("2_4cv1w")
+max_scale = Vector2(35, 11)
+min_scale = Vector2(1, 2)

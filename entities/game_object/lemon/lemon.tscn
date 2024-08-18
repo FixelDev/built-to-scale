@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4jwrsxxkxi0n"]
+
+[ext_resource type="PackedScene" uid="uid://d1sgsr5vtsvbn" path="res://entities/game_object/game_object.tscn" id="1_yqyc0"]
+[ext_resource type="Texture2D" uid="uid://ijby4kw5tl61" path="res://entities/game_object/lemon/lemon.png" id="2_slrl7"]
+
+[node name="Lemon" instance=ExtResource("1_yqyc0")]
+texture = ExtResource("2_slrl7")
+max_scale = Vector2(35, 16)
+min_scale = Vector2(2.6, 1.8)

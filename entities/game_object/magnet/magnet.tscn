@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ouakod2522pq"]
+
+[ext_resource type="PackedScene" uid="uid://d1sgsr5vtsvbn" path="res://entities/game_object/game_object.tscn" id="1_gqp4r"]
+[ext_resource type="Texture2D" uid="uid://dnx0lor56h5ab" path="res://entities/game_object/magnet/magnet.png" id="2_xwpbb"]
+
+[node name="Magnet" instance=ExtResource("1_gqp4r")]
+texture = ExtResource("2_xwpbb")
+max_scale = Vector2(37.8, 10.8)
+min_scale = Vector2(1.8, 1.4)

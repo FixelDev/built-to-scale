@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://chdr2tgcw8m0o"]
+
+[ext_resource type="PackedScene" uid="uid://d1sgsr5vtsvbn" path="res://entities/game_object/game_object.tscn" id="1_6msvt"]
+[ext_resource type="Texture2D" uid="uid://bwxdocll5cxjo" path="res://entities/game_object/car/car.png" id="2_lv07h"]
+
+[node name="Car" instance=ExtResource("1_6msvt")]
+texture = ExtResource("2_lv07h")
+max_scale = Vector2(37, 10)
+min_scale = Vector2(2, 1)

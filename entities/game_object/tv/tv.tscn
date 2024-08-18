@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://fwochakxswkw"]
+
+[ext_resource type="PackedScene" uid="uid://d1sgsr5vtsvbn" path="res://entities/game_object/game_object.tscn" id="1_jcuxo"]
+[ext_resource type="Texture2D" uid="uid://c8oioq1fxv37c" path="res://entities/game_object/tv/tv.png" id="2_2peh4"]
+
+[node name="Tv" instance=ExtResource("1_jcuxo")]
+texture = ExtResource("2_2peh4")
+max_scale = Vector2(37.3, 13.5)
+min_scale = Vector2(2, 1.1)

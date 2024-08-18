@@ -32,9 +32,13 @@ func spawn_game_object() -> void:
 	
 	await get_tree().create_timer(0.7).timeout
 	
-	game_object_spawned.emit()
+	game_object_outline.modulate.a = 1
 	game_object_outline.texture = current_game_object.texture
 	game_object_outline.scale = Vector2(scale_to_match, scale_to_match)
+	
+	await get_tree().create_timer(1).timeout
+	game_object_outline.modulate.a = 0
+	game_object_spawned.emit()
 
 
 func _on_submit_button_pressed():

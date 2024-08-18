@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://yaepasplwfhk"]
+
+[ext_resource type="PackedScene" uid="uid://d1sgsr5vtsvbn" path="res://entities/game_object/game_object.tscn" id="1_6lwau"]
+[ext_resource type="Texture2D" uid="uid://ft4b7cqaq3sn" path="res://entities/game_object/pipes/pipes.png" id="2_hu8k2"]
+
+[node name="Pipes" instance=ExtResource("1_6lwau")]
+texture = ExtResource("2_hu8k2")
+max_scale = Vector2(37.7, 11.2)
+min_scale = Vector2(2, 1.5)

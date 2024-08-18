@@ -31,7 +31,7 @@ func _on_player_console_manager_accuracy_calculated(accuracy):
 		text_to_show = ["Great", "Good", "Well done"].pick_random()
 		text_color = mid_color
 	elif accuracy >= 0.3 and accuracy < 0.6:
-		points_to_add = Globals.max_points * accuracy
+		points_to_add = Globals.max_points * (accuracy / 2)
 		text_to_show = "Ok"
 		text_color = mid_color
 	else:
