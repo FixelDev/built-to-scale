@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://djv543jgcdnn0"]
+
+[ext_resource type="PackedScene" uid="uid://d1sgsr5vtsvbn" path="res://entities/game_object/game_object.tscn" id="1_va37j"]
+[ext_resource type="Texture2D" uid="uid://cu47tvyxaxm5q" path="res://entities/game_object/lamp/lamp.png" id="2_tus6x"]
+
+[node name="Lamp" instance=ExtResource("1_va37j")]
+texture = ExtResource("2_tus6x")
+max_scale = Vector2(64.6, 12.5)
+min_scale = Vector2(1.5, 1.5)

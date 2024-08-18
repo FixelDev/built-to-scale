@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://busj8dmrgwtqj"]
+
+[ext_resource type="PackedScene" uid="uid://d1sgsr5vtsvbn" path="res://entities/game_object/game_object.tscn" id="1_sx6xg"]
+[ext_resource type="Texture2D" uid="uid://c54xtbxt2cpsb" path="res://entities/game_object/keyboard/keyboard.png" id="2_t08v3"]
+
+[node name="Keyboard" instance=ExtResource("1_sx6xg")]
+texture = ExtResource("2_t08v3")
+max_scale = Vector2(32.1, 15.6)
+min_scale = Vector2(2, 2)

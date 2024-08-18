@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct137mobi2llh"]
+
+[ext_resource type="PackedScene" uid="uid://d1sgsr5vtsvbn" path="res://entities/game_object/game_object.tscn" id="1_ajc8c"]
+[ext_resource type="Texture2D" uid="uid://dujkdyjn4ud7p" path="res://entities/game_object/office_cabinet/office_cabinet.png" id="2_5tumh"]
+
+[node name="OfficeCabinet" instance=ExtResource("1_ajc8c")]
+texture = ExtResource("2_5tumh")
+max_scale = Vector2(37.8, 11.7)

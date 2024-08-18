@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://nyf3q3qmm7r3"]
+
+[ext_resource type="PackedScene" uid="uid://d1sgsr5vtsvbn" path="res://entities/game_object/game_object.tscn" id="1_7egdq"]
+[ext_resource type="Texture2D" uid="uid://b4hh68o6cqww1" path="res://entities/game_object/column/column.png" id="2_6oe1n"]
+
+[node name="Column" instance=ExtResource("1_7egdq")]
+texture = ExtResource("2_6oe1n")
+max_scale = Vector2(38.2, 11.4)
+min_scale = Vector2(2, 2)

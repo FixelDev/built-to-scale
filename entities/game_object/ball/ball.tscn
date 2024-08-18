@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu57hank3dxr2"]
+
+[ext_resource type="PackedScene" uid="uid://d1sgsr5vtsvbn" path="res://entities/game_object/game_object.tscn" id="1_npphn"]
+[ext_resource type="Texture2D" uid="uid://deja47suaky7y" path="res://entities/game_object/ball/ball.png" id="2_xk2vh"]
+
+[node name="Ball" instance=ExtResource("1_npphn")]
+texture = ExtResource("2_xk2vh")
+max_scale = Vector2(36, 11.2)
+min_scale = Vector2(1, 1)

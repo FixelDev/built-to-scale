@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwd3kqi4ggwpi"]
+
+[ext_resource type="PackedScene" uid="uid://d1sgsr5vtsvbn" path="res://entities/game_object/game_object.tscn" id="1_sjqtb"]
+[ext_resource type="Texture2D" uid="uid://crmsjw557tc3m" path="res://entities/game_object/bar/bar.png" id="2_xim12"]
+
+[node name="Bar" instance=ExtResource("1_sjqtb")]
+texture = ExtResource("2_xim12")
+max_scale = Vector2(34.4, 15.5)
+min_scale = Vector2(3.1, 2.4)

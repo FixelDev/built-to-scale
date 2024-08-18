@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx60ddnd0l757"]
+
+[ext_resource type="PackedScene" uid="uid://d1sgsr5vtsvbn" path="res://entities/game_object/game_object.tscn" id="1_ju5rm"]
+[ext_resource type="Texture2D" uid="uid://dr48gsbe6k6rv" path="res://entities/game_object/furnace/furnace.png" id="2_qomfn"]
+
+[node name="Furnace" instance=ExtResource("1_ju5rm")]
+texture = ExtResource("2_qomfn")
+max_scale = Vector2(50.4, 12.2)
+min_scale = Vector2(2, 2)

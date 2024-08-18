@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc8qg0inv07ui"]
+
+[ext_resource type="PackedScene" uid="uid://d1sgsr5vtsvbn" path="res://entities/game_object/game_object.tscn" id="1_yyqna"]
+[ext_resource type="Texture2D" uid="uid://ctu3p7byb7fo5" path="res://entities/game_object/candles/candles.png" id="2_3gh0j"]
+
+[node name="Candles" instance=ExtResource("1_yyqna")]
+texture = ExtResource("2_3gh0j")
+max_scale = Vector2(37.2, 10.7)
+min_scale = Vector2(2, 2)

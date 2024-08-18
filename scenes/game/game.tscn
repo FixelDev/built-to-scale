@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://caumargkuom31"]
+[gd_scene load_steps=88 format=3 uid="uid://caumargkuom31"]
 
 [ext_resource type="PackedScene" uid="uid://csf6q162d5e8q" path="res://scenes/game/player_console/scale_slider/scale_slider.tscn" id="1_5axh8"]
 [ext_resource type="Texture2D" uid="uid://cvhms6cgh6lo4" path="res://scenes/game/player_console/score_panel.png" id="1_5jlqo"]
@@ -46,6 +46,18 @@
 [ext_resource type="PackedScene" uid="uid://ouakod2522pq" path="res://entities/game_object/magnet/magnet.tscn" id="42_76abc"]
 [ext_resource type="PackedScene" uid="uid://yaepasplwfhk" path="res://entities/game_object/pipes/pipes.tscn" id="43_0ulg4"]
 [ext_resource type="PackedScene" uid="uid://fwochakxswkw" path="res://entities/game_object/tv/tv.tscn" id="44_0mu1x"]
+[ext_resource type="PackedScene" uid="uid://dbd61bbgmdgnt" path="res://entities/game_object/alarm/alarm.tscn" id="45_0hm0q"]
+[ext_resource type="PackedScene" uid="uid://bu57hank3dxr2" path="res://entities/game_object/ball/ball.tscn" id="46_j00gj"]
+[ext_resource type="PackedScene" uid="uid://cwd3kqi4ggwpi" path="res://entities/game_object/bar/bar.tscn" id="47_0fboo"]
+[ext_resource type="PackedScene" uid="uid://c0thaoh2d2i5q" path="res://entities/game_object/cabinet/cabinet.tscn" id="48_3y06i"]
+[ext_resource type="PackedScene" uid="uid://dc8qg0inv07ui" path="res://entities/game_object/candles/candles.tscn" id="49_p4tj7"]
+[ext_resource type="PackedScene" uid="uid://nyf3q3qmm7r3" path="res://entities/game_object/column/column.tscn" id="50_r6xnt"]
+[ext_resource type="PackedScene" uid="uid://bx60ddnd0l757" path="res://entities/game_object/furnace/furnace.tscn" id="51_2udtr"]
+[ext_resource type="PackedScene" uid="uid://busj8dmrgwtqj" path="res://entities/game_object/keyboard/keyboard.tscn" id="52_0fkkp"]
+[ext_resource type="PackedScene" uid="uid://djv543jgcdnn0" path="res://entities/game_object/lamp/lamp.tscn" id="53_sgybx"]
+[ext_resource type="PackedScene" uid="uid://cookbxypit2kp" path="res://entities/game_object/log/log.tscn" id="54_f8f0e"]
+[ext_resource type="PackedScene" uid="uid://ct137mobi2llh" path="res://entities/game_object/office_cabinet/office_cabinet.tscn" id="55_o68xi"]
+[ext_resource type="PackedScene" uid="uid://cvdbkdw7sow03" path="res://entities/game_object/stool/stool.tscn" id="56_iurko"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxm14"]
 bg_color = Color(0.498039, 0.439216, 0.541176, 1)
@@ -872,7 +884,7 @@ script = ExtResource("3_26j68")
 unique_name_in_owner = true
 position = Vector2(644, 212)
 script = ExtResource("4_fmdik")
-game_object_scenes = Array[PackedScene]([ExtResource("29_frn3b"), ExtResource("29_qr1q6"), ExtResource("37_xj8sl"), ExtResource("38_d1ooh"), ExtResource("39_42qmj"), ExtResource("40_7jneq"), ExtResource("41_gfnfh"), ExtResource("42_76abc"), ExtResource("43_0ulg4"), ExtResource("44_0mu1x")])
+game_object_scenes = Array[PackedScene]([ExtResource("29_frn3b"), ExtResource("29_qr1q6"), ExtResource("37_xj8sl"), ExtResource("38_d1ooh"), ExtResource("39_42qmj"), ExtResource("40_7jneq"), ExtResource("41_gfnfh"), ExtResource("42_76abc"), ExtResource("43_0ulg4"), ExtResource("44_0mu1x"), ExtResource("45_0hm0q"), ExtResource("46_j00gj"), ExtResource("47_0fboo"), ExtResource("48_3y06i"), ExtResource("49_p4tj7"), ExtResource("50_r6xnt"), ExtResource("51_2udtr"), ExtResource("52_0fkkp"), ExtResource("53_sgybx"), ExtResource("54_f8f0e"), ExtResource("55_o68xi"), ExtResource("56_iurko")])
 
 [node name="GameObjectDestroyParticles" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true

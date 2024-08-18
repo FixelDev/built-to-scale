@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cookbxypit2kp"]
+
+[ext_resource type="PackedScene" uid="uid://d1sgsr5vtsvbn" path="res://entities/game_object/game_object.tscn" id="1_ldqc1"]
+[ext_resource type="Texture2D" uid="uid://bde2go1q0p7y0" path="res://entities/game_object/log/log.png" id="2_4xe2e"]
+
+[node name="Log" instance=ExtResource("1_ldqc1")]
+texture = ExtResource("2_4xe2e")
+max_scale = Vector2(52.1, 11.3)
+min_scale = Vector2(1.5, 1.5)
