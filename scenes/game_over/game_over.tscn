@@ -1,9 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvyb3iwt2tvkv"]
+[gd_scene load_steps=11 format=3 uid="uid://bvyb3iwt2tvkv"]
 
+[ext_resource type="PackedScene" uid="uid://btiifqf5dtmh4" path="res://utilities/scrolling_bg.tscn" id="1_3wbv8"]
 [ext_resource type="Script" path="res://scenes/game_over/leaderboard/leaderboard.gd" id="1_8t0l3"]
+[ext_resource type="Script" path="res://scenes/game_over/game_over.gd" id="1_iljvm"]
 [ext_resource type="PackedScene" uid="uid://cbqi1tme1vmx" path="res://scenes/game_over/leaderboard/player_score_item/player_score_item.tscn" id="2_1bjiq"]
+[ext_resource type="Texture2D" uid="uid://crj8xhv4v1rr6" path="res://utilities/tiled_bg_yellow.png" id="2_218k6"]
+[ext_resource type="Texture2D" uid="uid://byt15jorpjfh4" path="res://scenes/game_over/leaderboard/leaderboard_panel.png" id="3_8b2cb"]
+[ext_resource type="FontFile" uid="uid://bomgmu63wr4da" path="res://fonts/ThaleahFat.ttf" id="6_cutsj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vcgty"]
+texture = ExtResource("2_218k6")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n24ki"]
+texture = ExtResource("3_8b2cb")
+texture_margin_left = 19.0
+texture_margin_top = 22.0
+texture_margin_right = 22.0
+texture_margin_bottom = 19.0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_2xxs4"]
 
 [node name="GameOver" type="Node2D"]
+script = ExtResource("1_iljvm")
+
+[node name="ScrollingBg" parent="." instance=ExtResource("1_3wbv8")]
+offset_right = 278.0
+offset_bottom = 417.0
+scale = Vector2(2.89778, 2.89778)
+theme_override_styles/panel = SubResource("StyleBoxTexture_vcgty")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -19,6 +45,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_n24ki")
 script = ExtResource("1_8t0l3")
 player_score_item_scene = ExtResource("2_1bjiq")
 
@@ -34,10 +61,50 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="UI/Leaderboard/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "LEADERBOARD"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "M.O.S  ranking"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlayerScoreItemContainer" type="VBoxContainer" parent="UI/Leaderboard/MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="UI/Leaderboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_2xxs4")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/Leaderboard/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="PlayerScoreItemContainer" type="VBoxContainer" parent="UI/Leaderboard/MarginContainer/VBoxContainer/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -97.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="TryAgainButton" type="Button" parent="UI/HBoxContainer"]
+custom_minimum_size = Vector2(146.415, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_cutsj")
+theme_override_font_sizes/font_size = 32
+text = "Try Again"
+
+[node name="MenuButton" type="Button" parent="UI/HBoxContainer"]
+custom_minimum_size = Vector2(146.415, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_cutsj")
+theme_override_font_sizes/font_size = 32
+text = "Menu"
+
+[connection signal="pressed" from="UI/HBoxContainer/TryAgainButton" to="." method="_on_try_again_button_pressed"]
+[connection signal="pressed" from="UI/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

@@ -1,33 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbqi1tme1vmx"]
+[gd_scene load_steps=4 format=3 uid="uid://cbqi1tme1vmx"]
 
 [ext_resource type="Script" path="res://scenes/game_over/leaderboard/player_score_item/player_score_item.gd" id="1_6dqau"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oysrn"]
+bg_color = Color(0.735211, 0.868417, 0.928843, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r2o88"]
 
 [node name="PlayerScoreItem" type="PanelContainer"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_oysrn")
 script = ExtResource("1_6dqau")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="PlaceLabel" type="Label" parent="HBoxContainer"]
+[node name="PlaceLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
 text = "#1"
 
-[node name="PlayerNameLabel" type="Label" parent="HBoxContainer"]
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_r2o88")
+
+[node name="PlayerNameLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
 text = "Fixel"
 
-[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 135
 theme_override_styles/separator = SubResource("StyleBoxEmpty_r2o88")
 
-[node name="PlayerScoreLabel" type="Label" parent="HBoxContainer"]
+[node name="PlayerScoreLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
 text = "232"
 horizontal_alignment = 2

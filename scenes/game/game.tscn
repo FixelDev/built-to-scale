@@ -1,9 +1,8 @@
-[gd_scene load_steps=71 format=3 uid="uid://caumargkuom31"]
+[gd_scene load_steps=68 format=3 uid="uid://caumargkuom31"]
 
 [ext_resource type="PackedScene" uid="uid://csf6q162d5e8q" path="res://scenes/game/player_console/scale_slider/scale_slider.tscn" id="1_5axh8"]
 [ext_resource type="Texture2D" uid="uid://cvhms6cgh6lo4" path="res://scenes/game/player_console/score_panel.png" id="1_5jlqo"]
-[ext_resource type="Shader" path="res://utilities/scrolling_pattern.gdshader" id="1_mkluw"]
-[ext_resource type="Texture2D" uid="uid://c80csbh010pkj" path="res://utilities/tiled_bg.png" id="1_rrnvl"]
+[ext_resource type="PackedScene" uid="uid://btiifqf5dtmh4" path="res://utilities/scrolling_bg.tscn" id="1_mijdp"]
 [ext_resource type="Texture2D" uid="uid://br8w1vhp54p7l" path="res://scenes/game/player_console/scale_slider/slider_x_handle_highlight.png" id="2_hwd4f"]
 [ext_resource type="Texture2D" uid="uid://ce3ikrj1vposp" path="res://scenes/game/player_console/table/table_top.png" id="2_i3xno"]
 [ext_resource type="Texture2D" uid="uid://b5v84g3t2pxod" path="res://scenes/game/player_console/scale_slider/slider_y_handle.png" id="2_mt5gp"]
@@ -39,16 +38,6 @@
 [ext_resource type="Script" path="res://scenes/game/timer/timer_progress_bar.gd" id="29_0vk04"]
 [ext_resource type="PackedScene" uid="uid://b3jayt3tv6ean" path="res://entities/game_object/box/box.tscn" id="29_frn3b"]
 [ext_resource type="PackedScene" uid="uid://6etj6v6ac1un" path="res://entities/game_object/cactus/cactus.tscn" id="29_qr1q6"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_20xxp"]
-shader = ExtResource("1_mkluw")
-shader_parameter/speed = 0.05
-shader_parameter/color = Vector4(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nnigy"]
-texture = ExtResource("1_rrnvl")
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxm14"]
 bg_color = Color(0.498039, 0.439216, 0.541176, 1)
@@ -196,15 +185,7 @@ shader_parameter/phase_speed = 5.0
 
 [node name="Game" type="Node2D"]
 
-[node name="Panel" type="Panel" parent="."]
-texture_repeat = 2
-material = SubResource("ShaderMaterial_20xxp")
-offset_left = -235.0
-offset_top = 49.0
-offset_right = 1236.0
-offset_bottom = 859.0
-rotation = -0.265598
-theme_override_styles/panel = SubResource("StyleBoxTexture_nnigy")
+[node name="ScrollingBg" parent="." instance=ExtResource("1_mijdp")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
