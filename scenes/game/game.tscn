@@ -187,6 +187,46 @@ shader_parameter/phase_speed = 5.0
 
 [node name="ScrollingBg" parent="." instance=ExtResource("1_mijdp")]
 
+[node name="AccuracyLabel" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 420.0
+offset_top = 301.0
+offset_right = 860.0
+offset_bottom = 419.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 128
+text = "PERFECT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AccuracyLabelSpawnPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Marker2D" type="Marker2D" parent="AccuracyLabelSpawnPoints"]
+position = Vector2(535, 272)
+
+[node name="Marker2D2" type="Marker2D" parent="AccuracyLabelSpawnPoints"]
+position = Vector2(841, 166)
+
+[node name="Marker2D3" type="Marker2D" parent="AccuracyLabelSpawnPoints"]
+position = Vector2(586, 111)
+
+[node name="Marker2D4" type="Marker2D" parent="AccuracyLabelSpawnPoints"]
+position = Vector2(402, 265)
+
+[node name="Marker2D5" type="Marker2D" parent="AccuracyLabelSpawnPoints"]
+position = Vector2(832, 296)
+
+[node name="Marker2D6" type="Marker2D" parent="AccuracyLabelSpawnPoints"]
+position = Vector2(485, 167)
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Table" type="Control" parent="UI"]
@@ -227,7 +267,7 @@ theme_override_icons/grabber = ExtResource("3_mx7qq")
 theme_override_icons/grabber_highlight = ExtResource("2_hwd4f")
 theme_override_icons/grabber_disabled = ExtResource("3_7ab8d")
 editable = false
-scale_multiplier = Vector2(0.1, 0)
+scale_multiplier = Vector2(0.5, 0)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Table/TableBot/HBoxContainer"]
 layout_mode = 2
@@ -259,7 +299,7 @@ theme_override_icons/grabber = ExtResource("2_mt5gp")
 theme_override_icons/grabber_highlight = ExtResource("7_loc6v")
 theme_override_icons/grabber_disabled = ExtResource("4_7hhoa")
 editable = false
-scale_multiplier = Vector2(0, 0.1)
+scale_multiplier = Vector2(0, 0.3)
 
 [node name="SubmitButton" type="Button" parent="UI/Table/TableBot"]
 unique_name_in_owner = true
@@ -844,6 +884,9 @@ scale = Vector2(4, 4)
 
 [node name="PointsManager" type="Node2D" parent="."]
 script = ExtResource("6_20o6s")
+perfect_color = Color(1, 0.709804, 0.329412, 1)
+mid_color = Color(0.117647, 0.737255, 0.45098, 1)
+bad_color = Color(0.909804, 0.231373, 0.231373, 1)
 
 [node name="Timers" type="Node" parent="."]
 
