@@ -42,6 +42,7 @@ func spawn_game_object() -> void:
 
 
 func _on_submit_button_pressed():
+	game_object_outline.modulate.a = 1
 	current_game_object.destroy()
 	
 	await get_tree().create_timer(0.6).timeout
