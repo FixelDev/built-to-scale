@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://c76t01o20yt5x"]
+
+[ext_resource type="AudioStream" uid="uid://drf3ur4yaq6qx" path="res://scenes/game/sounds/music/Juhani Junkala [Chiptune Adventures] 1. Stage 1.wav" id="1_0gybk"]
+[ext_resource type="AudioStream" uid="uid://dahv6718apfd0" path="res://scenes/game/sounds/music/Juhani Junkala [Chiptune Adventures] 2. Stage2.wav" id="2_xfode"]
+[ext_resource type="AudioStream" uid="uid://cay2npr2vakd6" path="res://scenes/game/sounds/music/Juhani Junkala [Chiptune Adventures] 3. Boss Fight.wav" id="3_200pj"]
+[ext_resource type="Script" path="res://globals/music_manager/music_audio.gd" id="3_yogji"]
+[ext_resource type="AudioStream" uid="uid://dtrd4jdyxppue" path="res://scenes/game/sounds/music/Juhani Junkala [Chiptune Adventures] 4. Stage Select.wav" id="4_3kk25"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4h7ti"]
+streams_count = 4
+stream_0/stream = ExtResource("1_0gybk")
+stream_1/stream = ExtResource("2_xfode")
+stream_2/stream = ExtResource("3_200pj")
+stream_3/stream = ExtResource("4_3kk25")
+
+[node name="MusicManager" type="Node2D"]
+
+[node name="MusicAudio" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_4h7ti")
+volume_db = -10.0
+autoplay = true
+script = ExtResource("3_yogji")
+
+[connection signal="finished" from="MusicAudio" to="MusicAudio" method="_on_finished"]

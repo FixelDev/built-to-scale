@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bejw7jodn7fhm"
+path="res://.godot/imported/Intro Jingle.wav-ac194c30f52c4696a3f40739a293c67a.sample"
+
+[deps]
+
+source_file="res://scenes/game/sounds/music/Intro Jingle.wav"
+dest_files=["res://.godot/imported/Intro Jingle.wav-ac194c30f52c4696a3f40739a293c67a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

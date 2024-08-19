@@ -28,14 +28,17 @@ script = ExtResource("1_uunin")
 [node name="ScaleSliderClickedAudio" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_m0jsm")
+volume_db = 5.0
 
 [node name="ScaleSliderDraggingAudio" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("4_mwr0u")
+volume_db = 5.0
 
 [node name="ScaleSliderReleasedAudio" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("5_xessx")
+volume_db = 5.0
 
 [connection signal="drag_ended" from="." to="." method="_on_drag_ended"]
 [connection signal="drag_started" from="." to="." method="_on_drag_started"]
