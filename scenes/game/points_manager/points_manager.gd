@@ -1,6 +1,7 @@
 class_name PointsManager extends Node2D
 
 @export var perfect_color: Color
+@export var good_color: Color
 @export var mid_color: Color
 @export var bad_color: Color
 
@@ -18,7 +19,9 @@ func _ready() -> void:
 	accuracy_label.pivot_offset = Vector2(accuracy_label.size.x / 2, accuracy_label.size.y / 2)
 	accuracy_label_start_scale = Vector2(1, 1)
 	accuracy_label.scale = Vector2.ZERO
-
+	points_label.pivot_offset.x = points_label.size.x / 2
+	points_label.pivot_offset.y = points_label.size.y / 2
+	
 
 func _on_player_console_manager_accuracy_calculated(accuracy):
 	var points_to_add: int = 0
@@ -33,7 +36,7 @@ func _on_player_console_manager_accuracy_calculated(accuracy):
 	elif accuracy >= 0.7 and accuracy < 0.97:
 		points_to_add = Globals.max_points * accuracy
 		text_to_show = ["Great", "Good", "Well done"].pick_random()
-		text_color = mid_color
+		text_color = good_color
 		mid_accuracy_audio.play()
 	elif accuracy >= 0.4 and accuracy < 0.7:
 		points_to_add = Globals.max_points * (accuracy / 2)
@@ -49,8 +52,13 @@ func _on_player_console_manager_accuracy_calculated(accuracy):
 	show_accuracy_text(text_to_show, text_color)
 	
 
-func _on_stats_changed() -> void:
+func _on_stats_changed(points_difference: int) -> void:
 	points_label.text = "Points: " + str(Globals.points)
+	
+	if points_difference != 0:
+		var tween: Tween = get_tree().create_tween()
+		tween.tween_property(points_label, "scale", Vector2(1.3, 1.3), 0.5).set_trans(Tween.TRANS_CUBIC)
+		tween.tween_property(points_label, "scale", Vector2(1, 1), 0.5).set_trans(Tween.TRANS_CUBIC)
 
 
 func show_accuracy_text(text_to_show: String, text_color: Color) -> void:

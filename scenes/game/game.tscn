@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://caumargkuom31"]
+[gd_scene load_steps=108 format=3 uid="uid://caumargkuom31"]
 
 [ext_resource type="PackedScene" uid="uid://csf6q162d5e8q" path="res://scenes/game/player_console/scale_slider/scale_slider.tscn" id="1_5axh8"]
 [ext_resource type="Texture2D" uid="uid://cvhms6cgh6lo4" path="res://scenes/game/player_console/score_panel.png" id="1_5jlqo"]
@@ -43,7 +43,9 @@
 [ext_resource type="PackedScene" uid="uid://b3jayt3tv6ean" path="res://entities/game_object/box/box.tscn" id="29_frn3b"]
 [ext_resource type="PackedScene" uid="uid://6etj6v6ac1un" path="res://entities/game_object/cactus/cactus.tscn" id="29_qr1q6"]
 [ext_resource type="AudioStream" uid="uid://c7hnr1sq616s6" path="res://scenes/game/sounds/shift_almost_ended.mp3" id="30_nq0u8"]
+[ext_resource type="Theme" uid="uid://b1aycj56mc86x" path="res://scenes/game/rules_book/rules_book_theme.tres" id="33_hs4h7"]
 [ext_resource type="AudioStream" uid="uid://cqqyxd6yimjo8" path="res://scenes/game/sounds/rules_book_showed.mp3" id="35_g8ufa"]
+[ext_resource type="Texture2D" uid="uid://b6kynbx718ohn" path="res://scenes/game/rules_book/begin_button_hover.png" id="37_helvs"]
 [ext_resource type="PackedScene" uid="uid://byi5k3jq2am2n" path="res://entities/game_object/banana/banana.tscn" id="37_xj8sl"]
 [ext_resource type="PackedScene" uid="uid://cv6okwoihceni" path="res://entities/game_object/cake/cake.tscn" id="38_d1ooh"]
 [ext_resource type="AudioStream" uid="uid://bgmlcstbmmr5" path="res://scenes/game/sounds/shift_ended_part_1.mp3" id="38_icrax"]
@@ -185,6 +187,18 @@ bg_color = Color(0.6, 0.6, 0.6, 0.392157)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gbrlx"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_21qe7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76ted"]
+bg_color = Color(0.121569, 0.121569, 0.121569, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_grbh7"]
+texture = ExtResource("37_helvs")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3ds6p"]
 texture = ExtResource("22_xu78g")
 axis_stretch_vertical = 1
@@ -307,6 +321,7 @@ alignment = 1
 [node name="ScaleSliderX" parent="UI/Table/TableBot/HBoxContainer" instance=ExtResource("1_5axh8")]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_icons/grabber = ExtResource("3_mx7qq")
 theme_override_icons/grabber_highlight = ExtResource("2_hwd4f")
 theme_override_icons/grabber_disabled = ExtResource("3_7ab8d")
@@ -339,6 +354,7 @@ horizontal_alignment = 1
 [node name="ScaleSliderY" parent="UI/Table/TableBot/HBoxContainer" instance=ExtResource("1_5axh8")]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_icons/grabber = ExtResource("2_mt5gp")
 theme_override_icons/grabber_highlight = ExtResource("7_loc6v")
 theme_override_icons/grabber_disabled = ExtResource("4_7hhoa")
@@ -354,6 +370,7 @@ offset_top = 63.0
 offset_right = 1167.52
 offset_bottom = 159.255
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("18_g2n0c")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_njnao")
@@ -607,6 +624,7 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_c611t")
 [node name="StartButton" type="Button" parent="UI/PlayerCard/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 41.765)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_hover_color = Color(0.282353, 0.290196, 0.466667, 1)
 theme_override_fonts/font = ExtResource("18_g2n0c")
 theme_override_font_sizes/font_size = 32
@@ -684,6 +702,7 @@ offset_right = -105.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("33_hs4h7")
 script = ExtResource("21_l8vi2")
 
 [node name="Panel2" type="Panel" parent="UI/RulesBook"]
@@ -721,7 +740,6 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 64
 text = "-ministry of scale-"
 horizontal_alignment = 1
@@ -729,7 +747,6 @@ vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Offical workstation manual"
 horizontal_alignment = 1
@@ -759,7 +776,6 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Use: "
 vertical_alignment = 1
@@ -770,7 +786,6 @@ texture = ExtResource("23_qvq2k")
 
 [node name="Label2" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "and: "
 vertical_alignment = 1
@@ -781,14 +796,12 @@ texture = ExtResource("24_w8y4h")
 
 [node name="Label3" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "to change scale"
 vertical_alignment = 1
 
 [node name="Label4" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "of incoming objects."
 vertical_alignment = 1
@@ -806,7 +819,6 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Label4" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel2/MarginContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "match the scale of the object
 with the white outline."
@@ -825,10 +837,9 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Label4" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel4/MarginContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "the White Outline will disappear 
-after a second so memorize it well!"
+after a while so memorize it well!"
 vertical_alignment = 1
 
 [node name="Panel3" type="PanelContainer" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer"]
@@ -850,7 +861,6 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel3/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Use: "
 vertical_alignment = 1
@@ -862,7 +872,6 @@ expand_mode = 2
 
 [node name="Label2" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel3/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "when the object is ready."
 vertical_alignment = 1
@@ -880,7 +889,6 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Label4" type="Label" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer/Panel5/MarginContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "be fast and precise to be the best
 M.0.s employee!"
@@ -893,8 +901,18 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_gbrlx")
 
 [node name="BeginButton" type="Button" parent="UI/RulesBook/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.121569, 0.121569, 0.121569, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("18_g2n0c")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_21qe7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_76ted")
+theme_override_styles/hover = SubResource("StyleBoxTexture_grbh7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_76ted")
+theme_override_styles/normal = SubResource("StyleBoxFlat_76ted")
 text = "BEGIn"
 
 [node name="Panel" type="Panel" parent="UI/RulesBook"]
@@ -967,6 +985,7 @@ scale = Vector2(4, 4)
 [node name="PointsManager" type="Node2D" parent="."]
 script = ExtResource("6_20o6s")
 perfect_color = Color(1, 0.709804, 0.329412, 1)
+good_color = Color(0.707453, 0.526589, 0.801303, 1)
 mid_color = Color(0.117647, 0.737255, 0.45098, 1)
 bad_color = Color(0.909804, 0.231373, 0.231373, 1)
 
@@ -986,7 +1005,7 @@ stream = ExtResource("66_op6xc")
 
 [node name="GameTimer" type="Timer" parent="Timers"]
 unique_name_in_owner = true
-wait_time = 5.0
+wait_time = 120.0
 one_shot = true
 
 [connection signal="pressed" from="UI/Table/TableBot/SubmitButton" to="UI/Table/TableBot/SubmitButton" method="_on_pressed"]

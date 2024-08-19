@@ -1,13 +1,14 @@
 extends Node
 
-signal stats_changed()
+signal stats_changed(points_difference: int)
 
 var max_points: int = 50
 
 var points: int = 0:
 	set(value):
+		var difference: int = value - points
 		points = value
-		stats_changed.emit()
+		stats_changed.emit(difference)
 		print(value)
 	get:
 		return points

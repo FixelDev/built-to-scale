@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://drhoklgec3yb2"]
+[gd_scene load_steps=28 format=3 uid="uid://drhoklgec3yb2"]
 
 [ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_oijke"]
 [ext_resource type="PackedScene" uid="uid://btiifqf5dtmh4" path="res://utilities/scrolling_bg.tscn" id="2_my6nc"]
 [ext_resource type="FontFile" uid="uid://bomgmu63wr4da" path="res://fonts/ThaleahFat.ttf" id="3_wbbpm"]
+[ext_resource type="Script" path="res://utilities/rotation_tween.gd" id="3_yhsn0"]
 [ext_resource type="Texture2D" uid="uid://bx1yyaksox8pf" path="res://entities/game_object/box/box.png" id="4_qxd2d"]
 [ext_resource type="Shader" path="res://entities/game_object/outline.gdshader" id="5_bqm7a"]
 [ext_resource type="Script" path="res://scenes/menu/scaling_game_object_menu.gd" id="5_esr6j"]
@@ -81,6 +82,42 @@ offset_bottom = 1181.0
 
 [node name="UI" type="CanvasLayer" parent="."]
 
+[node name="Label" type="Label" parent="UI"]
+offset_left = 168.0
+offset_top = 19.0
+offset_right = 1112.0
+offset_bottom = 137.0
+pivot_offset = Vector2(472, 59)
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 128
+text = "Ministry of scale"
+script = ExtResource("3_yhsn0")
+rotation_offset = 0.05
+rotation_time = 2.0
+
+[node name="ColorRect" type="ColorRect" parent="UI/Label"]
+offset_left = 965.26
+offset_top = 48.0
+offset_right = 999.26
+offset_bottom = 127.0
+rotation = 0.491996
+
+[node name="ColorRect2" type="ColorRect" parent="UI/Label"]
+offset_left = 980.26
+offset_top = 70.0
+offset_right = 1011.26
+offset_bottom = 126.0
+rotation = 0.491996
+
+[node name="TextureRect3" type="TextureRect" parent="UI/Label"]
+offset_left = 926.26
+offset_top = 35.0
+offset_right = 1022.26
+offset_bottom = 131.0
+rotation = 0.191419
+texture = ExtResource("14_ml6ff")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="UI"]
 anchors_preset = 13
 anchor_left = 0.5
@@ -92,13 +129,6 @@ offset_right = 472.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 0
-
-[node name="Label" type="Label" parent="UI/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/outline_size = 16
-theme_override_constants/shadow_outline_size = 0
-theme_override_font_sizes/font_size = 128
-text = "Ministry of scale"
 
 [node name="HSeparator" type="HSeparator" parent="UI/VBoxContainer"]
 visible = false
@@ -150,6 +180,7 @@ alignment = 1
 custom_minimum_size = Vector2(135.52, 96.255)
 layout_mode = 2
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("3_wbbpm")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_04ixs")
@@ -281,27 +312,11 @@ rotation = -0.395785
 pivot_offset = Vector2(73, 73)
 texture = ExtResource("4_qxd2d")
 
-[node name="ColorRect" type="ColorRect" parent="UI"]
-offset_left = 1133.26
-offset_top = 67.0
-offset_right = 1167.26
-offset_bottom = 146.0
-rotation = 0.491996
-
-[node name="ColorRect2" type="ColorRect" parent="UI"]
-offset_left = 1148.26
-offset_top = 89.0
-offset_right = 1179.26
-offset_bottom = 145.0
-rotation = 0.491996
-
-[node name="TextureRect3" type="TextureRect" parent="UI"]
-offset_left = 1094.26
-offset_top = 54.0
-offset_right = 1190.26
-offset_bottom = 150.0
-rotation = 0.191419
-texture = ExtResource("14_ml6ff")
+[node name="Stamp" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="pressed" from="UI/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="UI/Table/TableBot/HBoxContainer/SubmitButton" to="." method="_on_submit_button_pressed"]
