@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://drhoklgec3yb2"]
+[gd_scene load_steps=27 format=3 uid="uid://drhoklgec3yb2"]
 
 [ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_oijke"]
 [ext_resource type="PackedScene" uid="uid://btiifqf5dtmh4" path="res://utilities/scrolling_bg.tscn" id="2_my6nc"]
@@ -7,6 +7,8 @@
 [ext_resource type="Shader" path="res://entities/game_object/outline.gdshader" id="5_bqm7a"]
 [ext_resource type="Script" path="res://scenes/menu/scaling_game_object_menu.gd" id="5_esr6j"]
 [ext_resource type="Texture2D" uid="uid://dsav2kswee6jo" path="res://scenes/game/player_console/scale_slider/submit_button_disabled.png" id="7_h0p1d"]
+[ext_resource type="AudioStream" uid="uid://bjqxnrfty5xan" path="res://scenes/game/sounds/submit_button_clicked.mp3" id="8_42oc7"]
+[ext_resource type="Script" path="res://scenes/menu/submit_button_menu.gd" id="8_pna0w"]
 [ext_resource type="Texture2D" uid="uid://cnrwsjmph841i" path="res://scenes/game/player_console/scale_slider/submit_button_hover.png" id="8_prix4"]
 [ext_resource type="Texture2D" uid="uid://cmgks0ftftqb0" path="res://scenes/game/player_console/scale_slider/submit_button_pressed.png" id="9_q8r4f"]
 [ext_resource type="Texture2D" uid="uid://cknt0hobn6j3h" path="res://scenes/game/player_console/scale_slider/submit_button.png" id="10_x0fhj"]
@@ -157,6 +159,11 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_at7ha")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_glp4r")
 theme_override_styles/normal = SubResource("StyleBoxTexture_005v7")
 text = "PLAY"
+script = ExtResource("8_pna0w")
+
+[node name="SubmitButtonClickedAudio" type="AudioStreamPlayer2D" parent="UI/Table/TableBot/HBoxContainer/SubmitButton"]
+unique_name_in_owner = true
+stream = ExtResource("8_42oc7")
 
 [node name="TableTop" type="Panel" parent="UI/Table"]
 layout_mode = 1
@@ -298,3 +305,4 @@ texture = ExtResource("14_ml6ff")
 
 [connection signal="pressed" from="UI/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="UI/Table/TableBot/HBoxContainer/SubmitButton" to="." method="_on_submit_button_pressed"]
+[connection signal="pressed" from="UI/Table/TableBot/HBoxContainer/SubmitButton" to="UI/Table/TableBot/HBoxContainer/SubmitButton" method="_on_pressed"]

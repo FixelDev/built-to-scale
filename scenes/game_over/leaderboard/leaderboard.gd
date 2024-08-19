@@ -9,10 +9,9 @@ extends PanelContainer
 
 func _ready() -> void:
 	loading_results_audio.play()
-	await get_tree().create_timer(1.7).timeout
+	await get_tree().create_timer(0.5).timeout
 	
-	loading_label.visible = false
-	var results: Dictionary = await SilentWolf.Scores.get_scores().sw_get_scores_complete
+	var results: Dictionary = await SilentWolf.Scores.get_scores(0).sw_get_scores_complete
 	
 	var place: int = 1
 	for score in results.scores:
@@ -21,3 +20,8 @@ func _ready() -> void:
 		player_score_item_container.add_child(player_score_item)
 		
 		place += 1
+	
+	await get_tree().create_timer(0.7).timeout
+	
+	loading_label.visible = false
+	player_score_item_container.visible = true

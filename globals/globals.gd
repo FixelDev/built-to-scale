@@ -25,4 +25,7 @@ func _ready() -> void:
 		"api_key": self.api_key,
 		"game_id": "builttoscale",
 		"log_level": 1
- 	})
+	})
+	
+	
+	#SilentWolf.Scores.wipe_leaderboard()

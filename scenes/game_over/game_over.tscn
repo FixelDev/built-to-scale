@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bvyb3iwt2tvkv"]
+[gd_scene load_steps=13 format=3 uid="uid://bvyb3iwt2tvkv"]
 
 [ext_resource type="PackedScene" uid="uid://btiifqf5dtmh4" path="res://utilities/scrolling_bg.tscn" id="1_3wbv8"]
 [ext_resource type="Script" path="res://scenes/game_over/leaderboard/leaderboard.gd" id="1_8t0l3"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://byt15jorpjfh4" path="res://scenes/game_over/leaderboard/leaderboard_panel.png" id="3_8b2cb"]
 [ext_resource type="FontFile" uid="uid://bomgmu63wr4da" path="res://fonts/ThaleahFat.ttf" id="6_cutsj"]
 [ext_resource type="AudioStream" uid="uid://cbrq5n6cv8nol" path="res://scenes/game_over/sounds/loading_results.mp3" id="7_djy2y"]
+[ext_resource type="Script" path="res://utilities/rotation_tween.gd" id="9_gwb57"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vcgty"]
 texture = ExtResource("2_218k6")
@@ -35,6 +36,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_vcgty")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Leaderboard" type="PanelContainer" parent="UI"]
+custom_minimum_size = Vector2(444.365, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -79,7 +81,26 @@ horizontal_scroll_mode = 0
 
 [node name="PlayerScoreItemContainer" type="VBoxContainer" parent="UI/Leaderboard/MarginContainer/VBoxContainer/ScrollContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlayerScoreItem" parent="UI/Leaderboard/MarginContainer/VBoxContainer/ScrollContainer/PlayerScoreItemContainer" instance=ExtResource("2_1bjiq")]
+layout_mode = 2
+script = null
+
+[node name="PlaceLabel" parent="UI/Leaderboard/MarginContainer/VBoxContainer/ScrollContainer/PlayerScoreItemContainer/PlayerScoreItem/MarginContainer/HBoxContainer" index="0"]
+text = "No."
+
+[node name="PlayerNameLabel" parent="UI/Leaderboard/MarginContainer/VBoxContainer/ScrollContainer/PlayerScoreItemContainer/PlayerScoreItem/MarginContainer/HBoxContainer" index="2"]
+text = "Name"
+
+[node name="PlayerScoreLabel" parent="UI/Leaderboard/MarginContainer/VBoxContainer/ScrollContainer/PlayerScoreItemContainer/PlayerScoreItem/MarginContainer/HBoxContainer" index="4"]
+text = "Score"
+
+[node name="HSeparator2" type="HSeparator" parent="UI/Leaderboard/MarginContainer/VBoxContainer/ScrollContainer/PlayerScoreItemContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_2xxs4")
 
 [node name="LoadingResultsAudio" type="AudioStreamPlayer2D" parent="UI/Leaderboard"]
 unique_name_in_owner = true
@@ -128,5 +149,25 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 64
 text = "LOADING..."
 
+[node name="PlayerScoreLabel" type="Label" parent="UI"]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 46.0
+offset_right = 250.0
+offset_bottom = 106.0
+grow_horizontal = 2
+pivot_offset = Vector2(250, 30)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 64
+text = "Your score: 121321"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_gwb57")
+
 [connection signal="pressed" from="UI/HBoxContainer/TryAgainButton" to="." method="_on_try_again_button_pressed"]
 [connection signal="pressed" from="UI/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+
+[editable path="UI/Leaderboard/MarginContainer/VBoxContainer/ScrollContainer/PlayerScoreItemContainer/PlayerScoreItem"]

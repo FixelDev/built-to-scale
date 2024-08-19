@@ -6,6 +6,7 @@ class_name ScaleSlider extends VSlider
 @onready var scale_slider_clicked_audio = %ScaleSliderClickedAudio
 @onready var scale_slider_dragging_audio = %ScaleSliderDraggingAudio
 @onready var scale_slider_released_audio = %ScaleSliderReleasedAudio
+@onready var game_timer: Timer = %GameTimer
 
 signal slider_used(scaling_factor: Vector2)
 
@@ -14,7 +15,7 @@ var is_dragging: bool = false
 
 func _ready() -> void:
 	slider_used.connect(%PlayerConsoleManager._on_scale_slider_used)
-
+	game_timer.timeout.connect(_on_drag_ended.bind(0))
 
 func _process(_delta) -> void:
 	if not is_dragging:
@@ -29,6 +30,7 @@ func _on_drag_started() -> void:
 	scale_slider_clicked_audio.play()
 	scale_slider_dragging_audio.play()
 
+
 func _on_drag_ended(value_changed) -> void:
 	is_dragging = false
 	slider_used.emit(Vector2.ZERO)
@@ -37,9 +39,14 @@ func _on_drag_ended(value_changed) -> void:
 	scale_slider_dragging_audio.stop()
 	scale_slider_released_audio.play()
 
+
 func _on_mouse_entered():
 	pass
 
 
 func _on_mouse_exited():
 	pass
+
+
+func _on_game_timer_timeout():
+	_on_drag_ended(0)
