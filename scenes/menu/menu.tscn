@@ -212,10 +212,10 @@ vertical_alignment = 1
 [node name="Panel2" type="Panel" parent="UI/Table"]
 modulate = Color(1, 1, 1, 0.482353)
 layout_mode = 0
-offset_left = 930.0
-offset_top = 510.0
-offset_right = 1299.0
-offset_bottom = 676.0
+offset_left = 911.0
+offset_top = 503.0
+offset_right = 1308.0
+offset_bottom = 669.0
 rotation = 0.203503
 scale = Vector2(0.866252, 0.866252)
 theme_override_styles/panel = SubResource("StyleBoxTexture_a2f5t")
@@ -227,18 +227,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -161.314
-offset_top = -67.7464
-offset_right = 70.686
-offset_bottom = 28.2536
+offset_left = -183.461
+offset_top = -67.2437
+offset_right = 84.5387
+offset_bottom = 28.7563
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.38176, 1.38176)
 theme_override_colors/font_color = Color(0.180392, 0.133333, 0.184314, 1)
 theme_override_font_sizes/font_size = 32
-text = "CREATED 
-DURING 2024 GMTK 
-GAME jam"
+text = "CREATED DURING 
+GMTK GAME jam 2024"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -276,24 +275,24 @@ pivot_offset = Vector2(73, 73)
 texture = ExtResource("4_qxd2d")
 
 [node name="ColorRect" type="ColorRect" parent="UI"]
-offset_left = 1176.0
-offset_top = 34.0
-offset_right = 1210.0
-offset_bottom = 113.0
+offset_left = 1133.26
+offset_top = 67.0
+offset_right = 1167.26
+offset_bottom = 146.0
 rotation = 0.491996
 
 [node name="ColorRect2" type="ColorRect" parent="UI"]
-offset_left = 1191.0
-offset_top = 56.0
-offset_right = 1222.0
-offset_bottom = 112.0
+offset_left = 1148.26
+offset_top = 89.0
+offset_right = 1179.26
+offset_bottom = 145.0
 rotation = 0.491996
 
 [node name="TextureRect3" type="TextureRect" parent="UI"]
-offset_left = 1137.0
-offset_top = 21.0
-offset_right = 1233.0
-offset_bottom = 117.0
+offset_left = 1094.26
+offset_top = 54.0
+offset_right = 1190.26
+offset_bottom = 150.0
 rotation = 0.191419
 texture = ExtResource("14_ml6ff")
 

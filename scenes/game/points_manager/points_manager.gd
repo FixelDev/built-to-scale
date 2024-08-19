@@ -7,6 +7,9 @@ class_name PointsManager extends Node2D
 @onready var points_label = %PointsLabel
 @onready var accuracy_label = %AccuracyLabel
 @onready var accuracy_label_spawn_points = %AccuracyLabelSpawnPoints
+@onready var mid_accuracy_audio = %MidAccuracyAudio
+@onready var excelent_accuracy_audio = %ExcelentAccuracyAudio
+@onready var bad_accuracy_audio = %BadAccuracyAudio
 
 var accuracy_label_start_scale: Vector2
 
@@ -26,17 +29,21 @@ func _on_player_console_manager_accuracy_calculated(accuracy):
 		points_to_add = Globals.max_points
 		text_to_show = "Perfect!"
 		text_color = perfect_color
+		excelent_accuracy_audio.play()
 	elif accuracy >= 0.7 and accuracy < 0.97:
 		points_to_add = Globals.max_points * accuracy
 		text_to_show = ["Great", "Good", "Well done"].pick_random()
 		text_color = mid_color
+		mid_accuracy_audio.play()
 	elif accuracy >= 0.4 and accuracy < 0.7:
 		points_to_add = Globals.max_points * (accuracy / 2)
 		text_to_show = "Ok"
 		text_color = mid_color
+		mid_accuracy_audio.play()
 	else:
 		text_to_show = "Too bad!"
 		text_color = bad_color
+		bad_accuracy_audio.play()
 		
 	Globals.points += points_to_add
 	show_accuracy_text(text_to_show, text_color)

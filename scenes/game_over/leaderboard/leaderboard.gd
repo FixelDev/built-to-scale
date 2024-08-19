@@ -3,11 +3,15 @@ extends PanelContainer
 @export var player_score_item_scene: PackedScene
 
 @onready var player_score_item_container = %PlayerScoreItemContainer
+@onready var loading_label = %LoadingLabel
+@onready var loading_results_audio = %LoadingResultsAudio
 
 
 func _ready() -> void:
-	await get_tree().create_timer(1).timeout
+	loading_results_audio.play()
+	await get_tree().create_timer(1.7).timeout
 	
+	loading_label.visible = false
 	var results: Dictionary = await SilentWolf.Scores.get_scores().sw_get_scores_complete
 	
 	var place: int = 1

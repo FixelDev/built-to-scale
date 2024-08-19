@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bvyb3iwt2tvkv"]
+[gd_scene load_steps=12 format=3 uid="uid://bvyb3iwt2tvkv"]
 
 [ext_resource type="PackedScene" uid="uid://btiifqf5dtmh4" path="res://utilities/scrolling_bg.tscn" id="1_3wbv8"]
 [ext_resource type="Script" path="res://scenes/game_over/leaderboard/leaderboard.gd" id="1_8t0l3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://crj8xhv4v1rr6" path="res://utilities/tiled_bg_yellow.png" id="2_218k6"]
 [ext_resource type="Texture2D" uid="uid://byt15jorpjfh4" path="res://scenes/game_over/leaderboard/leaderboard_panel.png" id="3_8b2cb"]
 [ext_resource type="FontFile" uid="uid://bomgmu63wr4da" path="res://fonts/ThaleahFat.ttf" id="6_cutsj"]
+[ext_resource type="AudioStream" uid="uid://cbrq5n6cv8nol" path="res://scenes/game_over/sounds/loading_results.mp3" id="7_djy2y"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vcgty"]
 texture = ExtResource("2_218k6")
@@ -80,6 +81,10 @@ horizontal_scroll_mode = 0
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="LoadingResultsAudio" type="AudioStreamPlayer2D" parent="UI/Leaderboard"]
+unique_name_in_owner = true
+stream = ExtResource("7_djy2y")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="UI"]
 anchors_preset = 12
 anchor_top = 1.0
@@ -105,6 +110,23 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("6_cutsj")
 theme_override_font_sizes/font_size = 32
 text = "Menu"
+
+[node name="LoadingLabel" type="Label" parent="UI"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -7.5
+offset_right = 20.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "LOADING..."
 
 [connection signal="pressed" from="UI/HBoxContainer/TryAgainButton" to="." method="_on_try_again_button_pressed"]
 [connection signal="pressed" from="UI/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

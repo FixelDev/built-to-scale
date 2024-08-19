@@ -4,7 +4,9 @@ class_name PlayerConsoleManager extends Node2D
 @onready var scale_slider_x = %ScaleSliderX
 @onready var scale_slider_y = %ScaleSliderY
 @onready var submit_button = %SubmitButton
-@onready var game_timer = %GameTimer
+@onready var timer_progress_bar = %TimerProgressBar
+@onready var shift_ended_horn_audio = %ShiftEndedHornAudio
+@onready var shift_ended_clock_alarm_audio = %ShiftEndedClockAlarmAudio
 
 signal accuracy_calculated(accuracy: float)
 
@@ -83,8 +85,15 @@ func _on_submit_button_pressed():
 
 func _on_game_timer_timeout():
 	toggle_console_tools(false)
+	shift_ended_horn_audio.play()
+	
+	await get_tree().create_timer(1.5).timeout
+	
+	shift_ended_clock_alarm_audio.play()
+	
 	await SilentWolf.Scores.save_score(Globals.player_name, Globals.points).sw_save_score_complete
 	
+	await shift_ended_clock_alarm_audio.finished
 	SceneManager.load_scene(SceneManager.game_over_scene)
 	
 
@@ -92,4 +101,4 @@ func _on_begin_button_pressed():
 	await get_tree().create_timer(1).timeout
 	
 	game_object_manager.spawn_game_object()
-	game_timer.start()
+	timer_progress_bar.start_timer()

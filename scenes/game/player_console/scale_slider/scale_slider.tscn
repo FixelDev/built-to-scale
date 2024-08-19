@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://csf6q162d5e8q"]
+[gd_scene load_steps=8 format=3 uid="uid://csf6q162d5e8q"]
 
 [ext_resource type="Script" path="res://scenes/game/player_console/scale_slider/scale_slider.gd" id="1_uunin"]
 [ext_resource type="Texture2D" uid="uid://bfyuf2fnyvell" path="res://scenes/game/player_console/scale_slider/slider_area_bg.png" id="2_sndn5"]
+[ext_resource type="AudioStream" uid="uid://ch0krtfi1js18" path="res://scenes/game/sounds/scale_slider_clicked.mp3" id="3_m0jsm"]
+[ext_resource type="AudioStream" uid="uid://b5wxtdh64gmlc" path="res://scenes/game/sounds/scale_slider_dragging.mp3" id="4_mwr0u"]
+[ext_resource type="AudioStream" uid="uid://1nic0mnq3mbc" path="res://scenes/game/sounds/scale_slider_released.mp3" id="5_xessx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wvq2w"]
 content_margin_left = 60.0
@@ -21,6 +24,18 @@ min_value = -1.0
 max_value = 1.0
 step = 0.01
 script = ExtResource("1_uunin")
+
+[node name="ScaleSliderClickedAudio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_m0jsm")
+
+[node name="ScaleSliderDraggingAudio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_mwr0u")
+
+[node name="ScaleSliderReleasedAudio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_xessx")
 
 [connection signal="drag_ended" from="." to="." method="_on_drag_ended"]
 [connection signal="drag_started" from="." to="." method="_on_drag_started"]
