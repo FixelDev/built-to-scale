@@ -97,6 +97,7 @@ rotation_offset = 0.05
 rotation_time = 2.0
 
 [node name="ColorRect" type="ColorRect" parent="UI/Label"]
+layout_mode = 0
 offset_left = 965.26
 offset_top = 48.0
 offset_right = 999.26
@@ -104,6 +105,7 @@ offset_bottom = 127.0
 rotation = 0.491996
 
 [node name="ColorRect2" type="ColorRect" parent="UI/Label"]
+layout_mode = 0
 offset_left = 980.26
 offset_top = 70.0
 offset_right = 1011.26
@@ -111,6 +113,7 @@ offset_bottom = 126.0
 rotation = 0.491996
 
 [node name="TextureRect3" type="TextureRect" parent="UI/Label"]
+layout_mode = 0
 offset_left = 926.26
 offset_top = 35.0
 offset_right = 1022.26

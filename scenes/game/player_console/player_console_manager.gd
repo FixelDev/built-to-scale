@@ -12,7 +12,7 @@ signal accuracy_calculated(accuracy: float)
 
 var scaling_factor: Vector2
 var accuracy: float
-
+var shift_ended: bool = false
 
 func _process(delta) -> void:	
 	if scaling_factor == Vector2.ZERO:
@@ -61,6 +61,9 @@ func calculate_accuracy() -> void:
 
 
 func _on_game_object_manager_game_object_spawned():
+	if shift_ended:
+		return
+	
 	toggle_console_tools(true)
 	
 
@@ -79,12 +82,13 @@ func _on_game_object_manager_game_object_destroyed():
 	game_object_manager.spawn_game_object()
 
 
-func _on_submit_button_pressed():
+func _on_submit_button_pressed():	
 	toggle_console_tools(false)
 
 
 func _on_game_timer_timeout():
 	toggle_console_tools(false)
+	shift_ended = true
 	shift_ended_horn_audio.play()
 	
 	await get_tree().create_timer(1.5).timeout

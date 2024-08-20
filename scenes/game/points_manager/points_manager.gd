@@ -28,17 +28,17 @@ func _on_player_console_manager_accuracy_calculated(accuracy):
 	var text_to_show: String
 	var text_color: Color
 	
-	if accuracy >= 0.97:
+	if accuracy >= 0.96:
 		points_to_add = Globals.max_points
 		text_to_show = "Perfect!"
 		text_color = perfect_color
 		excelent_accuracy_audio.play()
-	elif accuracy >= 0.7 and accuracy < 0.97:
+	elif accuracy >= 0.75 and accuracy < 0.97:
 		points_to_add = Globals.max_points * accuracy
 		text_to_show = ["Great", "Good", "Well done"].pick_random()
 		text_color = good_color
 		mid_accuracy_audio.play()
-	elif accuracy >= 0.4 and accuracy < 0.7:
+	elif accuracy >= 0.55 and accuracy < 0.75:
 		points_to_add = Globals.max_points * (accuracy / 2)
 		text_to_show = "Ok"
 		text_color = mid_color

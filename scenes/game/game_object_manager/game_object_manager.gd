@@ -66,9 +66,9 @@ func get_outline_show_time() -> float:
 	if game_timer.time_left > 90 and game_timer.time_left <= 120:
 		time = 1
 	elif game_timer.time_left > 45 and game_timer.time_left <= 90:
-		time = 0.8
+		time = 0.7
 	else:
-		time = 0.5
+		time = 0.3
 		
 	return time
 

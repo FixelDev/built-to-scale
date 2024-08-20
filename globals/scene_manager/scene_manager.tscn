@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cb8mxb810ma"]
+[gd_scene load_steps=9 format=3 uid="uid://cb8mxb810ma"]
 
 [ext_resource type="Script" path="res://globals/scene_manager/scene_manager.gd" id="1_to4cc"]
 [ext_resource type="PackedScene" uid="uid://drhoklgec3yb2" path="res://scenes/menu/menu.tscn" id="2_32a1q"]
 [ext_resource type="PackedScene" uid="uid://caumargkuom31" path="res://scenes/game/game.tscn" id="3_bmect"]
 [ext_resource type="PackedScene" uid="uid://bvyb3iwt2tvkv" path="res://scenes/game_over/game_over.tscn" id="4_x1dmy"]
+[ext_resource type="PackedScene" uid="uid://bdw68yssn35qa" path="res://scenes/cutscene/cutscene.tscn" id="5_knjwq"]
 [ext_resource type="Shader" path="res://globals/scene_manager/transition.gdshader" id="5_uhfdn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tpixo"]
@@ -18,6 +19,7 @@ script = ExtResource("1_to4cc")
 menu_scene = ExtResource("2_32a1q")
 game_scene = ExtResource("3_bmect")
 game_over_scene = ExtResource("4_x1dmy")
+cutscene_scene = ExtResource("5_knjwq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
